@@ -1,12 +1,15 @@
 import react from 'react'
-import styles, { Container } from './style'
+import * as styled from './style'
+import Container from '../ui/Container'
+import img from '../../assets/image-hero-desktop.jpg'
 
 const HeroBanner = () => {
 
     return(
-        <>
-            <Container>Hello</Container>
-        </>
+        <styled.Container>
+            {/* <styled.Image src={img}></styled.Image> */}
+        
+        </styled.Container>
     )
 }
 
