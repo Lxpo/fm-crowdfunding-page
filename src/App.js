@@ -24,7 +24,7 @@ const App = () => {
     const Container = styled.div`
 
         > ${MainContent} { 
-            margin-top:20em;
+            margin-top:18em;
         }
     `
 
