@@ -5,7 +5,10 @@ import HeroBanner from './components/HeroBanner'
 import TitleBlock from './components/TitleBlock'
 import Header from './components/Header'
 
+import * as TB from './components/TitleBlock/style'
+
 import './App.css'
+import Statistics from './components/Statistics';
 
 const App = () => {
 
@@ -20,6 +23,10 @@ const App = () => {
         align-items:center;
         justify-content:center;
         box-sizing:border-box;
+
+        > ${TB.Container} {
+            margin-bottom: 24px;
+        }
     `
     const Container = styled.div`
 
@@ -36,6 +43,7 @@ const App = () => {
             <Header />
             <MainContent>
                <TitleBlock />
+               <Statistics /> 
             </MainContent>
         </Container>
     )
