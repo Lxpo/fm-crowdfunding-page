@@ -4,8 +4,10 @@ import styled from 'styled-components'
 import HeroBanner from './components/HeroBanner'
 import TitleBlock from './components/TitleBlock'
 import Header from './components/Header'
+import About from './components/About'
 
 import * as TB from './components/TitleBlock/style'
+import * as STAT from './components/Statistics/style'
 
 import './App.css'
 import Statistics from './components/Statistics';
@@ -14,9 +16,8 @@ const App = () => {
 
     const MainContent = styled.div`
         margin:0 auto;
-        max-width: 1440px;
+        max-width: 850px;
         width:100%;
-        border: 1px solid black;
         position: relative;
         display:flex;
         flex-direction:column;
@@ -27,8 +28,13 @@ const App = () => {
         > ${TB.Container} {
             margin-bottom: 24px;
         }
+
+        > ${STAT.Container} {
+            margin-bottom: 24px;
+        }
     `
     const Container = styled.div`
+        padding-bottom: 32px;
 
         > ${MainContent} { 
             margin-top:18em;
@@ -44,6 +50,7 @@ const App = () => {
             <MainContent>
                <TitleBlock />
                <Statistics /> 
+               <About />
             </MainContent>
         </Container>
     )

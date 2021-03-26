@@ -32,14 +32,13 @@ export const Card = styled.div`
     }
 `
 export const Container = styled.div`
-    max-width: 900px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items:center;
     justify-content: center;
     position: relative;
-    border: 1px solid ${sg.setOpacityDarkGray(0.5)};
+    border: 1px solid ${sg.setOpacityDarkGray(0.1)};
     border-radius: 10px;
     
 `

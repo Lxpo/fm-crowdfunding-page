@@ -28,7 +28,7 @@ export const Card = styled.div`
     align-items:center;
     justify-content:center;
     border-radius:10px;
-    border:1px solid ${sg.setOpacityDarkGray(0.5)};
+    border:1px solid ${sg.setOpacityDarkGray(0.1)};
     padding: 60px 100px 50px 100px;
     box-sizing:border-box;
 
@@ -46,14 +46,12 @@ export const ProductIcon = styled.img`
     top:0;
 `
 export const Container = styled.div`
-    max-width: 900px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items:center;
     justify-content: center;
     position: relative;
-    border: 1px solid ${sg.DarkGray};
 
     > ${Card} {
         margin-top:28px;
