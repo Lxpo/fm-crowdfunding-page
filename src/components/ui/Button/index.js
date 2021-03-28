@@ -14,7 +14,7 @@ const Button  = ({text, enable = true}) => {
         isEnabled.background = sg.ModerateCyan;
     }
 
-    console.log('My Button default', typeof(Button))
+    //fix button onHover
 
     return(
         <styled.Button style={isEnabled} >{text}</styled.Button>

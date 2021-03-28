@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import * as styled from './style'
 
 import Button from '../Button'
@@ -20,9 +20,8 @@ const InfoBlock = ({name, pledge, description,remaining}) => {
         isAvailable.opacity = 1
         isAvailable.enable = true
         isAvailable.msg = 'Select Reward'
-    }
+    } 
 
-   
     return (
         <styled.Container style={isAvailable}>
             <styled.Header>

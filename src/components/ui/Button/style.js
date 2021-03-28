@@ -11,4 +11,9 @@ export const Button = styled.button`
     color:white;
     cursor:pointer;
     outline:none;
+    background-color:${sg.ModerateCyan};
+
+    &:hover {
+        background-color: ${sg.DarkCyan};
+    }
 `

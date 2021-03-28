@@ -29,7 +29,7 @@ export const Card = styled.div`
     justify-content:center;
     border-radius:10px;
     border:1px solid ${sg.setOpacityDarkGray(0.1)};
-    padding: 60px 100px 50px 100px;
+    padding: ${sg.DefaultCardPadding};
     box-sizing:border-box;
 
     > ${ProductName} {

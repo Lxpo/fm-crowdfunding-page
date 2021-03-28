@@ -9,3 +9,7 @@ export const Font500 = `500`;
 export const Font700 = `700`;
 
 export const setOpacityDarkGray = (opacity) => `hsl(0, 0%, 48%, ${opacity})`;
+export const setOpacityDarkCyan = (opacity) => `hsl(176, 72%, 28%, ${opacity})`;
+export const setOpacityModerateCyan = (opacity) => `hsl(176, 50%, 47%, ${opacity})`;
+
+export const DefaultCardPadding = `60px 100px 50px 100px`;
