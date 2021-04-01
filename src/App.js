@@ -5,7 +5,9 @@ import HeroBanner from './components/HeroBanner'
 import TitleBlock from './components/TitleBlock'
 import Header from './components/Header'
 import About from './components/About'
+import Modal from './components/Modal'
 
+import * as sg from './components/util/styleGuide'
 import * as TB from './components/TitleBlock/style'
 import * as STAT from './components/Statistics/style'
 
@@ -16,7 +18,7 @@ const App = () => {
 
     const MainContent = styled.div`
         margin:0 auto;
-        max-width: 850px;
+        max-width: ${sg.DefaultContainerMaxWidth};
         width:100%;
         position: relative;
         display:flex;
@@ -51,7 +53,9 @@ const App = () => {
                <TitleBlock />
                <Statistics /> 
                <About />
-            </MainContent>
+               <Modal />
+            </MainContent>  
+            
         </Container>
     )
 }

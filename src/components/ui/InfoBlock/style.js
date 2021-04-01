@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import * as sg from '../../util/styleGuide'
 
 export const Remaining = styled.span`
+    display:flex;
     font-family:${sg.Font};
     font-weight:${sg.Font700};
     font-size:28px;
@@ -14,7 +15,7 @@ export const Remaining = styled.span`
         font-size:16px;
         color:${sg.setOpacityDarkGray(0.8)};
         margin-left:10px;
-        margin-bottom:10px;
+        margin-top:4px;
     }
 `
 export const Pledge = styled.span`
@@ -22,6 +23,7 @@ export const Pledge = styled.span`
     font-weight:${sg.Font400};
     font-size:16px;
     color:${sg.ModerateCyan};
+    cursor:pointer;
 `
 export const Name = styled.h4`
     font-family:${sg.Font};

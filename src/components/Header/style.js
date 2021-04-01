@@ -6,12 +6,14 @@ export const Icon = styled.span`
     color:white;
     font-family: 'Commissioner', sans-serif;
 `
-
 export const NavItem = styled.li`
     font-size:16px;
     font-weight: 400;
-`
 
+    &:hover { 
+        cursor:pointer;
+    }
+`
 export const NavMenu = styled.ul`
     display:flex;
     flex-direction:row;

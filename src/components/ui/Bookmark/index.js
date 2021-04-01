@@ -24,7 +24,7 @@ const Bookmark = () => {
         svgActive.circle = sg.DarkCyan
         svgActive.path = 'white'
         textActive.color = sg.DarkCyan
-        containerActive.background = sg.setOpacityModerateCyan(0.1)
+        containerActive.background = sg.setOpacityModerateCyan(0.05)
     } else {
         svgActive.circle = '#2F2F2F'
         svgActive.path = '#B1B1B1'

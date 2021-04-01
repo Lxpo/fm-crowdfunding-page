@@ -7,18 +7,18 @@ const InfoBlock = ({name, pledge, description,remaining}) => {
 
     const isAvailable = {
         opacity:1,
-        enable:true,
+        disable:true,
         msg:'Select Reward',
     }
 
     if (remaining == 0) {
         isAvailable.opacity = 0.6
-        isAvailable.enable = false
+        isAvailable.disable = true
         isAvailable.msg = 'Out of Stock'
         
     } else {
         isAvailable.opacity = 1
-        isAvailable.enable = true
+        isAvailable.disable = false
         isAvailable.msg = 'Select Reward'
     } 
 
@@ -35,7 +35,7 @@ const InfoBlock = ({name, pledge, description,remaining}) => {
             </styled.TextContainer>
             <styled.Footer>
                 <styled.Remaining>{remaining}</styled.Remaining>
-                <Button text={isAvailable.msg} enable={isAvailable.enable} />
+                <Button text={isAvailable.msg} disable={isAvailable.disable} />
             </styled.Footer>
         </styled.Container>
     )

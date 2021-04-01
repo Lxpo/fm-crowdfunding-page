@@ -13,9 +13,6 @@ export const Text = styled.span`
     -ms-user-select: none; 
     user-select: none;                            
 `
-export const Circle = styled.circle`
-
-`
 export const Icon = styled.div`
     max-width:max-content;
     position:absolute;

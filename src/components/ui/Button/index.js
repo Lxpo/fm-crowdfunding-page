@@ -2,23 +2,23 @@ import React from 'react'
 import * as styled from './style'
 import * as sg from '../../util/styleGuide'
 
-const Button  = ({text, enable = true}) => {
+const Button  = ({text, disable = false}) => {
 
-    const isEnabled = {
-        background:sg.ModerateCyan,
+    const isDisabled = {
+        background:sg.DarkGray,
     }
 
-    if (!enable) {
-        isEnabled.background = sg.DarkGray;
+    if (disable) {
+        return(
+            <styled.Button style={isDisabled} >{text}</styled.Button>
+        )
     } else {
-        isEnabled.background = sg.ModerateCyan;
+        return(
+            <styled.Button>{text}</styled.Button>
+        )
     }
 
-    //fix button onHover
-
-    return(
-        <styled.Button style={isEnabled} >{text}</styled.Button>
-    )
+    
 }
 
 export default Button
