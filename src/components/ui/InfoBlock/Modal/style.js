@@ -20,7 +20,6 @@ export const RadioInput = styled.span`
         opacity:0;
         width:0;
         height:0;
-
         + ${RadioControl}:before {
             content: "";
             width: 0.7em;
@@ -30,7 +29,6 @@ export const RadioInput = styled.span`
             transition: 180ms transform ease-in-out;
             transform: scale(0);
         }
-
         :checked + ${RadioControl}:before {
             transform: scale(1);
         }
