@@ -14,8 +14,14 @@ const Modal = ({rewardName,text,pledge,remaining,id,enable=false,defaultBlock=fa
         display:ShowFooter,
     }   
 
-    const ContainerBorder = {
+    const ContainerInline = {
         border:`${borderThickness} solid ${borderColor}`,
+        opacity:'1',
+    }
+
+    if(remaining == 0) {
+        ContainerInline.opacity='0.4'
+
     }
 
     const Hook = () => {
@@ -58,13 +64,14 @@ const Modal = ({rewardName,text,pledge,remaining,id,enable=false,defaultBlock=fa
         )
     } else {
         return(
-            <styled.Container style={ContainerBorder}>
+            <styled.Container style={ContainerInline}>
                 <styled.Body>
                     <styled.Label>
                         <styled.RadioInput>
                             <styled.Radio type={'radio'}  
                                             name={'modalGroup'} 
-                                            value={id}       
+                                            value={id} 
+                                            disabled={remaining == 0}      
                             />
                             <styled.RadioControl />
                         </styled.RadioInput>
@@ -87,6 +94,7 @@ const Modal = ({rewardName,text,pledge,remaining,id,enable=false,defaultBlock=fa
                 <styled.Footer style={footerDisplay}>
                     <styled.Message>Enter your pledge</styled.Message>
                     <styled.Control>
+                        
                         <Button  text={'Continue'}/>
                     </styled.Control>
                 </styled.Footer>

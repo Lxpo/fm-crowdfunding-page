@@ -37,10 +37,25 @@ export const CloseBtnContainer = styled.div`
     align-items:center;
     justify-content:flex-end;
 `
+export const InfoBlockContainer = styled.div`
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    > ${InfoBlock.Container} {
+        margin-bottom:24px;
+
+        &:last-of-type{
+            margin-bottom:0px;
+        }
+    }
+`
 export const Container = styled.div`
     max-width:${sg.DefaultContainerMaxWidth};
     width:100%;
-    padding:${sg.DefaultCardPadding};
+    padding:${sg.CustomModalPadding};
     display:flex;
     flex-direction:column;
     align-items:center;

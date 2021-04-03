@@ -26,7 +26,7 @@ const Modal = ({enable = false}) => {
                 <styled.Title>Back this project</styled.Title>
                 <styled.SubTitle>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</styled.SubTitle>
             </styled.Header>
-            <div onChange={changeFunction}>
+            <styled.InfoBlockContainer onChange={changeFunction}>
                 <InfoBlock defaultBlock={true} id={0} />
                 {
                     data.ModalInfoBlockData.map(item => 
@@ -39,7 +39,7 @@ const Modal = ({enable = false}) => {
                                     enable={Number(selectedRadio) === item.id}/>
                     )
                 }
-            </div>
+            </styled.InfoBlockContainer>
         </styled.Container>
     )
 }
