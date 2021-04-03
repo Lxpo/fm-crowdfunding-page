@@ -7,15 +7,14 @@ import InfoBlock from '../ui/InfoBlock/Modal'
 
 const Modal = ({enable = false}) => {
     
-    const [modalActive, setModalActive] = useState(enable)
-    const [rewards, setRewards] = useState(data.getData())
+    // const [modalActive, setModalActive] = useState(enable)
+    // const [rewards, setRewards] = useState(data.getData())
     const [selectedRadio, setSelectedRadio] = useState(null)
 
     const changeFunction = (event) => {
         setSelectedRadio(event.target.value)
     }
 
-    // console.log('The selected Radio ',selectedRadio)
     return(
         <styled.Container>
             <styled.CloseBtnContainer>

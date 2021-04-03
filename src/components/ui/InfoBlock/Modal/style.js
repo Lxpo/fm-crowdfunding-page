@@ -58,7 +58,7 @@ export const Footer = styled.div`
     align-items:center;
     justify-content:space-between;
     box-sizing:border-box;
-    padding:40px 20px;  
+    padding:28px 20px;  
     border-top:2px solid ${sg.setOpacityDarkGray(0.1)}
 `
 export const Description = styled.p`

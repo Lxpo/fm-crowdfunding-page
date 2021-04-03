@@ -6,27 +6,26 @@ import Button from '../../Button'
 
 const Modal = ({rewardName,text,pledge,remaining,id,enable=false,defaultBlock=false}) => {
     
-    console.log('this is the id', id)
-    console.log(`This is enable`,enable)
-
-    //Display footer on radio check
     const [ShowFooter, setShowFooter] = useState('none')
     const [borderColor, setBorderColor] = useState(sg.setOpacityDarkGray(0.2))
+    const [borderThickness, setBorderThickness] = useState('1px')
     
     const footerDisplay = {
         display:ShowFooter,
     }   
 
     const ContainerBorder = {
-        border:`1px solid ${borderColor}`,
+        border:`${borderThickness} solid ${borderColor}`,
     }
 
     const Hook = () => {
         if(enable){
             setShowFooter('flex')
+            setBorderThickness('2px')
             setBorderColor(sg.ModerateCyan)
         } else {
             setShowFooter('none')
+            setBorderThickness('1px')
             setBorderColor(sg.setOpacityDarkGray(0.2))
         }
     }
@@ -94,8 +93,6 @@ const Modal = ({rewardName,text,pledge,remaining,id,enable=false,defaultBlock=fa
             </styled.Container>
         )
     }
-
-   
 }
 
 export default Modal
