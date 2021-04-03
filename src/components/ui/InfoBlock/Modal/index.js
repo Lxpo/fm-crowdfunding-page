@@ -1,15 +1,41 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import * as styled from './style'
+import * as sg from '../../../util/styleGuide'
 
 import Button from '../../Button'
 
-const Modal = ({rewardName,text,pledge,remaining, enable = false, defaultBlock = false}) => {
+const Modal = ({rewardName,text,pledge,remaining,id,enable=false,defaultBlock=false}) => {
+    
+    console.log('this is the id', id)
+    console.log(`This is enable`,enable)
 
     //Display footer on radio check
-   
+    const [ShowFooter, setShowFooter] = useState('none')
+    const [borderColor, setBorderColor] = useState(sg.setOpacityDarkGray(0.2))
+    
+    const footerDisplay = {
+        display:ShowFooter,
+    }   
+
+    const ContainerBorder = {
+        border:`1px solid ${borderColor}`,
+    }
+
+    const Hook = () => {
+        if(enable){
+            setShowFooter('flex')
+            setBorderColor(sg.ModerateCyan)
+        } else {
+            setShowFooter('none')
+            setBorderColor(sg.setOpacityDarkGray(0.2))
+        }
+    }
+
+    useEffect(Hook,[enable])
+    
     if(defaultBlock){
         return(
-            <styled.Container>
+            <styled.Container >
                 <styled.Body>
                     <styled.Label>
                         <styled.RadioInput>
@@ -33,11 +59,14 @@ const Modal = ({rewardName,text,pledge,remaining, enable = false, defaultBlock =
         )
     } else {
         return(
-            <styled.Container>
+            <styled.Container style={ContainerBorder}>
                 <styled.Body>
                     <styled.Label>
                         <styled.RadioInput>
-                            <styled.Radio type={'radio'}  name={'modalGroup'}/>
+                            <styled.Radio type={'radio'}  
+                                            name={'modalGroup'} 
+                                            value={id}       
+                            />
                             <styled.RadioControl />
                         </styled.RadioInput>
                     </styled.Label>
@@ -56,7 +85,7 @@ const Modal = ({rewardName,text,pledge,remaining, enable = false, defaultBlock =
                         </styled.Description>
                     </styled.Header>
                 </styled.Body>
-                <styled.Footer>
+                <styled.Footer style={footerDisplay}>
                     <styled.Message>Enter your pledge</styled.Message>
                     <styled.Control>
                         <Button  text={'Continue'}/>

@@ -17,6 +17,7 @@ const About = () => {
             Featuring artisan craftsmanship, the simplicity of design creates extra desk space below your computer 
             to allow notepads, pens, and USB sticks to be stored under the stand.
             </styled.Description>
+            
             {
                 data.ModalInfoBlockData.map(line => 
                     <InfoBlock  key={line.reward}
@@ -26,6 +27,7 @@ const About = () => {
                                 remaining={line.remaining} />       
                 )
             }
+            
         </styled.Container>
     )
 }
