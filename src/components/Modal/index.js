@@ -14,6 +14,8 @@ const Modal = ({enable = false}) => {
     const changeFunction = (event) => {
         setSelectedRadio(event.target.value)
     }
+    
+    //Input pledge is next + disabled info blockd
 
     return(
         <styled.Container>
