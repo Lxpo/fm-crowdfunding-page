@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import styled from 'styled-components'
 
 import HeroBanner from './components/HeroBanner'
@@ -15,6 +15,8 @@ import './App.css'
 import Statistics from './components/Statistics';
 
 const App = () => {
+
+    const [showModal, setShowModal] = useState(false)
 
     const MainContent = styled.div`
         margin:0 auto;
@@ -44,13 +46,23 @@ const App = () => {
         }
     `
 
+    const displayModal = () => {
+        setShowModal(true)
+    }
+
+    const closeModal = () => {
+        setShowModal(false)
+    }
+
+    //Add on click functionality to other buttons
+
     return(
         <Container>  
             <HeroBanner/>
             <Header />
-            <Modal />
+            <Modal enable={showModal} closeModal={closeModal}/>
             <MainContent>
-               <TitleBlock />
+               <TitleBlock showModal={displayModal}/>
                <Statistics /> 
                <About />
             </MainContent>  

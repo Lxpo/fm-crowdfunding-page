@@ -5,23 +5,18 @@ import * as data from '../../assets/data/dummyData'
 import CloseBtn from '../../assets/icons/icon-close-modal.svg'
 import InfoBlock from '../ui/InfoBlock/Modal'
 
-const Modal = ({enable = false}) => {
+const Modal = ({enable = false, closeModal}) => {
     
     const [selectedRadio, setSelectedRadio] = useState(null)
-    const [isDisplayActive, setIsDisplayActive] = useState(true)
 
     const changeFunction = (event) => {
         setSelectedRadio(event.target.value || event.target.id)
     }
 
-    const closeModal = () => {
-        setIsDisplayActive(false)
-    }
-
     //find a way to center modal
     
     return(
-        <styled.ModalWrapper style={{display: isDisplayActive ? '':'none'}}>
+        <styled.ModalWrapper style={{display: enable ? '':'none'}}>
             <styled.Container>
                 <styled.CloseBtnContainer>
                     <styled.CloseBtn src={CloseBtn} onClick={closeModal}/>
