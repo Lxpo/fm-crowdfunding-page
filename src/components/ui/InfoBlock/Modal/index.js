@@ -4,11 +4,13 @@ import * as sg from '../../../util/styleGuide'
 
 import Button from '../../Button'
 
-const Modal = ({rewardName,text,pledge,remaining,id,enable=false,defaultBlock=false}) => {
+const Modal = ({rewardName,text,pledge,remaining,id,enable=false,defaultBlock=false, handleClick}) => {
     
     const [ShowFooter, setShowFooter] = useState('none')
     const [borderColor, setBorderColor] = useState(sg.setOpacityDarkGray(0.2))
     const [borderThickness, setBorderThickness] = useState('1px')
+    const [onHover, setHover] = useState(false)
+    const [footerIsActive, setFooterIsActive] = useState(enable)
     
     const footerDisplay = {
         display:ShowFooter,
@@ -16,12 +18,15 @@ const Modal = ({rewardName,text,pledge,remaining,id,enable=false,defaultBlock=fa
 
     const ContainerInline = {
         border:`${borderThickness} solid ${borderColor}`,
-        opacity:'1',
+        opacity: remaining !== 0 ? '1':'0.4',
     }
 
-    if(remaining == 0) {
-        ContainerInline.opacity='0.4'
+    const RadioBorderOnHover = {
+        border: `0.1em solid ${remaining !== 0 && onHover ? sg.ModerateCyan : sg.setOpacityDarkGray(0.4)}`,
+    }
 
+    const rewardNameInline = {
+        color:`${remaining !== 0 && onHover ? sg.ModerateCyan : 'black'}`,
     }
 
     const Hook = () => {
@@ -37,21 +42,32 @@ const Modal = ({rewardName,text,pledge,remaining,id,enable=false,defaultBlock=fa
     }
 
     useEffect(Hook,[enable])
-    
+
     if(defaultBlock){
         return(
-            <styled.Container >
+            <styled.Container style={ContainerInline}>
                 <styled.Body>
                     <styled.Label>
                         <styled.RadioInput>
-                            <styled.Radio type={'radio'}  name={'modalGroup'}/>
-                            <styled.RadioControl />
+                            <styled.Radio   type={'radio'}  
+                                            name={'modalGroup'} 
+                                            value={'default'} 
+                                            onClick={handleClick} 
+                                            checked={enable}
+                                            />
+                            <styled.RadioControl    style={RadioBorderOnHover} 
+                                                    onMouseEnter={() => setHover(true)} 
+                                                    onMouseLeave={() => setHover(false)}/>
                         </styled.RadioInput>
                     </styled.Label>
                     <styled.Header>
                         <styled.Center>
-                            <styled.LeftGroup>
-                                <styled.RewardName >Pledge with no reward</styled.RewardName>
+                            <styled.LeftGroup   onMouseEnter={() => setHover(true)} 
+                                                onMouseLeave={() => setHover(false)}>
+                                <styled.RewardName  style={rewardNameInline} 
+                                                    onClick={handleClick}
+                                                    id={'default'}
+                                                    >Pledge with no reward</styled.RewardName>
                             </styled.LeftGroup>
                         </styled.Center>
                         <styled.Description>
@@ -60,6 +76,13 @@ const Modal = ({rewardName,text,pledge,remaining,id,enable=false,defaultBlock=fa
                         </styled.Description>
                     </styled.Header>
                 </styled.Body>
+                    <styled.Footer style={footerDisplay}>
+                        <styled.Message>Enter your pledge</styled.Message>
+                        <styled.Control>
+                            <styled.Input type={'number'}/>
+                            <Button  text={'Continue'}/>
+                        </styled.Control>
+                    </styled.Footer>
             </styled.Container>
         )
     } else {
@@ -67,19 +90,27 @@ const Modal = ({rewardName,text,pledge,remaining,id,enable=false,defaultBlock=fa
             <styled.Container style={ContainerInline}>
                 <styled.Body>
                     <styled.Label>
-                        <styled.RadioInput>
-                            <styled.Radio type={'radio'}  
+                        <styled.RadioInput  >
+                            <styled.Radio   type={'radio'}  
                                             name={'modalGroup'} 
                                             value={id} 
-                                            disabled={remaining == 0}      
+                                            disabled={remaining == 0}     
+                                            onClick={handleClick} 
+                                            checked={enable}
                             />
-                            <styled.RadioControl />
+                            <styled.RadioControl    style={RadioBorderOnHover} 
+                                                    onMouseEnter={() => setHover(true)} 
+                                                    onMouseLeave={() => setHover(false)}/>
                         </styled.RadioInput>
                     </styled.Label>
-                    <styled.Header>
+                    <styled.Header >
                         <styled.Center>
-                            <styled.LeftGroup>
-                                <styled.RewardName >{rewardName}</styled.RewardName>
+                            <styled.LeftGroup   onMouseEnter={() => setHover(true)} 
+                                                onMouseLeave={() => setHover(false)}>
+                                <styled.RewardName style={rewardNameInline} 
+                                                   onClick={remaining !== 0 ? handleClick : undefined}
+                                                   id={id}>   
+                                                    {rewardName}</styled.RewardName>
                                 <styled.Pledge >Pledge ${pledge} or more</styled.Pledge>
                             </styled.LeftGroup>
                             <styled.RightGroup>
@@ -94,7 +125,7 @@ const Modal = ({rewardName,text,pledge,remaining,id,enable=false,defaultBlock=fa
                 <styled.Footer style={footerDisplay}>
                     <styled.Message>Enter your pledge</styled.Message>
                     <styled.Control>
-                        
+                        <styled.Input type={'number'} placeholder={pledge} />
                         <Button  text={'Continue'}/>
                     </styled.Control>
                 </styled.Footer>

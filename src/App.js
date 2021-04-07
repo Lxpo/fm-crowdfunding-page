@@ -37,25 +37,23 @@ const App = () => {
     `
     const Container = styled.div`
         padding-bottom: 32px;
-
+        position:relative;
+        
         > ${MainContent} { 
             margin-top:18em;
         }
     `
 
-    //create a wrap to position absolute
-
     return(
         <Container>  
             <HeroBanner/>
             <Header />
+            <Modal />
             <MainContent>
                <TitleBlock />
                <Statistics /> 
                <About />
-               <Modal />
             </MainContent>  
-            
         </Container>
     )
 }

@@ -1,6 +1,31 @@
 import styled from 'styled-components'
 import * as sg from '../../../util/styleGuide'
+import dollar from '../../../../assets/icons/dollar-symbol.svg'
 
+export const Input = styled.input`
+    border: 1px solid ${sg.ModerateCyan}; 
+    border-radius: 28px;
+    padding:18px 36px;
+    color:black;
+    font-family:${sg.Font};
+    font-weight:${sg.Font700};
+    font-size:16px;
+    max-width:60px;
+    text-align:center;
+    background: url(${dollar}) no-repeat scroll center;
+    background-size: 100px 100px;
+    background-position:-23px -21px;
+    
+    &::-webkit-inner-spin-button{
+        display:none;
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    &:focus{
+        outline:none;
+    }
+`
 export const RadioControl = styled.span`
     display:grid;
     place-items:center;
@@ -34,14 +59,15 @@ export const RadioInput = styled.span`
         }
     }
 `
-export const Label = styled.label`
-    position:relative;
-`
 export const Control = styled.div`
     display:flex;
     flex-direction:row;
     align-items:center;
     justify-content:space-between;
+
+    > ${Input} {    
+        margin-right:20px;
+    } 
 `
 export const Message = styled.span`
     font-family:${sg.Font};
@@ -99,10 +125,6 @@ export const RewardName = styled.span`
     font-size:18px;
     color:black;
     cursor:pointer;
-
-    &:hover {
-        color:${sg.ModerateCyan};
-    }
 `
 export const RadioButton = styled.div`
     width:20px;
@@ -144,6 +166,9 @@ export const Header = styled.div`
     > ${Center} {
         margin-bottom:16px;
     }
+`
+export const Label = styled.label`
+    position:relative;
 `
 export const Body = styled.div`
     width:100%;

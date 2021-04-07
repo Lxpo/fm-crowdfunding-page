@@ -53,6 +53,7 @@ export const InfoBlockContainer = styled.div`
     }
 `
 export const Container = styled.div`
+    margin:0 auto;
     max-width:${sg.DefaultContainerMaxWidth};
     width:100%;
     padding:${sg.CustomModalPadding};
@@ -74,5 +75,18 @@ export const Container = styled.div`
         &:last-of-type{
             margin-bottom:0px;
         }
+    }
+`
+export const ModalWrapper = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index:1;
+    background:rgba(0, 0, 0, 0.5);
+
+    > ${Container} {
+        margin-top:250px;
     }
 `
