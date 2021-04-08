@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import * as styled from './style'
 import * as data from '../../assets/data/dummyData'
 
 import CloseBtn from '../../assets/icons/icon-close-modal.svg'
 import InfoBlock from '../ui/InfoBlock/Modal'
 
-const Modal = ({enable = false, closeModal}) => {
+const Modal = ({closeModal,passedId,enable = false}) => {
     
     const [selectedRadio, setSelectedRadio] = useState(null)
 
@@ -13,7 +13,13 @@ const Modal = ({enable = false, closeModal}) => {
         setSelectedRadio(event.target.value || event.target.id)
     }
 
-    //find a way to center modal
+    const enableModalHook = () => {
+        setSelectedRadio(passedId)
+    }
+
+    useEffect(enableModalHook,[passedId])
+
+    console.log('Radio selected', selectedRadio)
     
     return(
         <styled.ModalWrapper style={{display: enable ? '':'none'}}>

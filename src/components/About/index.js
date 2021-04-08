@@ -4,7 +4,7 @@ import * as data from '../../assets/data/dummyData'
 
 import InfoBlock from '../ui/InfoBlock'
 
-const About = () => {
+const About = ({showModal}) => {
     
     return (
         <styled.Container>
@@ -24,7 +24,10 @@ const About = () => {
                                 name={line.reward} 
                                 pledge={line.pledge} 
                                 description={line.description} 
-                                remaining={line.remaining} />       
+                                remaining={line.remaining} 
+                                id={line.id}
+                                showModal={showModal}
+                                />       
                 )
             }
             

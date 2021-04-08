@@ -17,6 +17,7 @@ import Statistics from './components/Statistics';
 const App = () => {
 
     const [showModal, setShowModal] = useState(false)
+    const [selectedRewardId, setSelectedReward] = useState(null)
 
     const MainContent = styled.div`
         margin:0 auto;
@@ -46,25 +47,25 @@ const App = () => {
         }
     `
 
-    const displayModal = () => {
+    const displayModal = (event) => {
+        console.log('Clicking Button...', event.target.id)
         setShowModal(true)
+        setSelectedReward(event.target.id)
     }
 
     const closeModal = () => {
         setShowModal(false)
     }
 
-    //Add on click functionality to other buttons
-
     return(
         <Container>  
             <HeroBanner/>
             <Header />
-            <Modal enable={showModal} closeModal={closeModal}/>
+            <Modal enable={showModal} closeModal={closeModal} passedId={selectedRewardId}/>
             <MainContent>
                <TitleBlock showModal={displayModal}/>
                <Statistics /> 
-               <About />
+               <About showModal={displayModal}/>
             </MainContent>  
         </Container>
     )

@@ -3,7 +3,7 @@ import * as styled from './style'
 
 import Button from '../Button'
 
-const InfoBlock = ({name, pledge, description,remaining}) => {
+const InfoBlock = ({name, pledge, description,remaining,id,showModal}) => {
 
     const isAvailable = {
         opacity:1,
@@ -35,7 +35,7 @@ const InfoBlock = ({name, pledge, description,remaining}) => {
             </styled.TextContainer>
             <styled.Footer>
                 <styled.Remaining>{remaining}</styled.Remaining>
-                <Button text={isAvailable.msg} disable={isAvailable.disable} />
+                <Button text={isAvailable.msg} disable={isAvailable.disable} id={id} clickFunction={showModal}/>
             </styled.Footer>
         </styled.Container>
     )

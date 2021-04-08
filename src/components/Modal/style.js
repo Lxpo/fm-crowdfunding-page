@@ -64,6 +64,8 @@ export const Container = styled.div`
     box-sizing:border-box;
     border-radius:10px;
     background:white;
+    position:sticky;
+    top:40px;
 
     > ${Header} {
         margin-bottom:12px;
@@ -86,7 +88,4 @@ export const ModalWrapper = styled.div`
     z-index:1;
     background:rgba(0, 0, 0, 0.5);
 
-    > ${Container} {
-        margin-top:250px;
-    }
 `
