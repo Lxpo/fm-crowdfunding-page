@@ -6,6 +6,7 @@ import TitleBlock from './components/TitleBlock'
 import Header from './components/Header'
 import About from './components/About'
 import Modal from './components/Modal'
+import SuccessModal from './components/Modal/Success'
 
 import * as sg from './components/util/styleGuide'
 import * as TB from './components/TitleBlock/style'
@@ -66,6 +67,7 @@ const App = () => {
                <TitleBlock showModal={displayModal}/>
                <Statistics /> 
                <About showModal={displayModal}/>
+               <SuccessModal />
             </MainContent>  
         </Container>
     )
