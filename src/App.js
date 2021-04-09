@@ -19,6 +19,7 @@ const App = () => {
     const [showModal, setShowModal] = useState(false)
     const [selectedRewardId, setSelectedReward] = useState(null)
     const [confirmPledge, setConfirmPledge] = useState(false)
+    const [backers, setBackers] = useState(5007)
 
     const MainContent = styled.div`
         margin:0 auto;
@@ -49,7 +50,6 @@ const App = () => {
     `
 
     const displayModal = (event) => {
-        console.log('Clicking Button...', event.target.id)
         setShowModal(true)
         setSelectedReward(event.target.id)
     }
@@ -61,17 +61,27 @@ const App = () => {
 
     const displaySuccess = (display) => {
         setConfirmPledge(display)
+        console.log('Number of Backers', backers)
     }
 
+    const addBacker = () => {
+        setBackers(backers + 1)
+    }
 
     return(
         <Container>  
             <HeroBanner/>
             <Header />
-            <Modal enable={showModal} closeModal={closeModal} passedId={selectedRewardId}/>
+            <Modal  enable={showModal} 
+                    closeModal={closeModal}     
+                    passedId={selectedRewardId} 
+                    pledgeConfirm={confirmPledge} 
+                    displayConfirm={displaySuccess}
+                    setBackers={addBacker}
+                    />
             <MainContent>
                <TitleBlock showModal={displayModal}/>
-               <Statistics /> 
+               <Statistics backers={backers}/> 
                <About showModal={displayModal}/>
             </MainContent>  
         </Container>

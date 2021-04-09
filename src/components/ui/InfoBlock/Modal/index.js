@@ -4,7 +4,7 @@ import * as sg from '../../../util/styleGuide'
 
 import Button from '../../Button'
 
-const Modal = ({rewardName,text,pledge,remaining,id,handleClick,closeModal,enable=false,defaultBlock=false}) => {
+const Modal = ({rewardName,text,pledge,remaining,id,handleClick,confirmPledge,setBackers,enable=false,defaultBlock=false}) => {
     
     const [ShowFooter, setShowFooter] = useState('none')
     const [borderColor, setBorderColor] = useState(sg.setOpacityDarkGray(0.2))
@@ -29,8 +29,6 @@ const Modal = ({rewardName,text,pledge,remaining,id,handleClick,closeModal,enabl
         color:`${remaining !== 0 && onHover ? sg.ModerateCyan : 'black'}`,
     }
 
-    //Working on Submit Modal
-
     const Hook = () => {
         if(enable){
             setShowFooter('flex')
@@ -51,8 +49,9 @@ const Modal = ({rewardName,text,pledge,remaining,id,handleClick,closeModal,enabl
             alert(`Support us by pledging atleast $${pledge} or more`)
             setPledgeInput(pledge)
         } else {
-            console.log('Success Modal should show up')
-            
+            confirmPledge(true)
+            setBackers()
+            //This is where you get the pledge amount
         }
     }
 
@@ -62,8 +61,9 @@ const Modal = ({rewardName,text,pledge,remaining,id,handleClick,closeModal,enabl
             alert(`Support us by pledging atleast $1 or more`)
             setPledgeInput(1)
         } else {
-            console.log('Success Modal should show up')
-
+            confirmPledge(true)
+            setBackers()
+             //This is where you get the pledge amount
         }
     }
 

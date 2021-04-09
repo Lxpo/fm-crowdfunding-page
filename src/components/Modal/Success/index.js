@@ -9,7 +9,7 @@ const SuccessModal = ({closeModal,displaySuccess = false}) => {
     const [displayModal, setDisplayModal] = useState('none')
 
     return (
-        <styled.Container display={displayModal}>
+        <styled.Container display={displaySuccess ? 'flex':'none'}>
             <SVGCheckIcon />
             <styled.Heading>Thanks for your support!</styled.Heading>
             <styled.Message> Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get

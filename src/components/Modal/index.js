@@ -6,7 +6,7 @@ import CloseBtn from '../../assets/icons/icon-close-modal.svg'
 import InfoBlock from '../ui/InfoBlock/Modal'
 import SuccessModal from '../Modal/Success'
 
-const Modal = ({closeModal,passedId,enable = false}) => {
+const Modal = ({closeModal,passedId,pledgeConfirm,displayConfirm,setBackers,enable = false}) => {
     
     const [selectedRadio, setSelectedRadio] = useState(null)
 
@@ -20,13 +20,9 @@ const Modal = ({closeModal,passedId,enable = false}) => {
 
     useEffect(enableModalHook,[passedId])
 
-    console.log('Radio selected', selectedRadio)
-
-    //if confirmPledge true hide BackThisProject, if false show BackThisProject Modal
-    
     return(
         <styled.ModalWrapper style={{display: enable ? '':'none'}}>
-            <styled.Container display={'flex'}>
+            <styled.Container display={pledgeConfirm ? 'none' : 'flex'}>
                 <styled.CloseBtnContainer>
                     <styled.CloseBtn src={CloseBtn} onClick={closeModal}/>
                 </styled.CloseBtnContainer>
@@ -38,7 +34,10 @@ const Modal = ({closeModal,passedId,enable = false}) => {
                     <InfoBlock  defaultBlock={true} 
                                 id={0} 
                                 handleClick={changeFunction} 
-                                enable={selectedRadio === 'default'}/>
+                                enable={selectedRadio === 'default'}
+                                confirmPledge={displayConfirm}
+                                setBackers={setBackers}
+                                />
                     {
                         data.ModalInfoBlockData.map(item => 
                             <InfoBlock  key={item.reward}
@@ -49,13 +48,16 @@ const Modal = ({closeModal,passedId,enable = false}) => {
                                         id={item.id}
                                         enable={Number(selectedRadio) === item.id}
                                         handleClick={changeFunction}
-                                        closeModal={closeModal}/>
+                                        closeModal={closeModal}
+                                        confirmPledge={displayConfirm}
+                                        setBackers={setBackers}
+                                        />
                         )
                     }
 
                 </styled.InfoBlockContainer>
             </styled.Container>
-            <SuccessModal closeModal={closeModal} />
+            <SuccessModal closeModal={closeModal} displaySuccess={pledgeConfirm}/>
         </styled.ModalWrapper>
     )
 }

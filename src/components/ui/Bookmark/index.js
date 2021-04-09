@@ -3,6 +3,7 @@ import * as styled from './style'
 import * as sg from '../../util/styleGuide'
 
 import Icon from '../../../assets/icons/icon-bookmark.svg'
+import SVGBookmark from '../../ui/Icons/SVGBookmark'
 
 const Bookmark = () => {
 
@@ -45,12 +46,8 @@ const Bookmark = () => {
     return (
         <styled.Bookmark onClick={() => handleBookmark()} style={containerActive}>
             <styled.Icon>
-                <svg width="56" height="56" xmlns="http://www.w3.org/2000/svg">
-                    <g fill="none" fill-rule="evenodd">
-                        <circle fill={svgActive.circle} cx="28" cy="28" r="28"/>
-                        <path fill={svgActive.path} d="M23 19v18l5-5.058L33 37V19z"/>
-                    </g>
-                </svg>
+                <SVGBookmark  fillCircle={svgActive.circle} 
+                                fillPath={svgActive.path}/>
             </styled.Icon>
             <styled.Text style={textActive}>{text}</styled.Text>
         </styled.Bookmark>

@@ -15,10 +15,8 @@ export const Heading = styled.h2`
     font-size:20px;
     color:black;
 `
-export const Icon = styled.div`
-
-`
 export const Container = styled.div`
+    margin:0 auto;
     max-width: 500px;
     width:100%;
     display:${({display = 'none'}) => display};
@@ -28,6 +26,8 @@ export const Container = styled.div`
     padding:42px 36px 48px 36px;
     background:white;
     border-radius:10px;
+    position:sticky;
+    top:150px;
 
     > svg {
         margin-bottom:40px;

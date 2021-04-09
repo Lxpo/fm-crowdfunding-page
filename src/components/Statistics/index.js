@@ -4,14 +4,14 @@ import * as styled from './style'
 import Statistic from '../ui/Statistic'
 import ProgressBar from '../ui/ProgressBar'
 
-const Statistics = () => {
+const Statistics = ({backers}) => {
 
     return(
         <styled.Container>
             <styled.Card>
                 <styled.StatisticsContainer>
                     <Statistic value={'$89 914'} description={`of $100,000 backed`} />
-                    <Statistic value={'5,007'} description={`total backers`} />
+                    <Statistic value={backers.toLocaleString()} description={`total backers`} />
                     <Statistic value={'56'} description={`days left`} />
                 </styled.StatisticsContainer>
                 <ProgressBar percentage={80}/>

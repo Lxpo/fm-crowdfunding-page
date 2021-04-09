@@ -40,7 +40,7 @@ export const Card = styled.div`
         margin-bottom:32px;
     }
 `
-export const ProductIcon = styled.img`
+export const ProductIcon = styled.div`
     max-width: max-content;
     position:absolute;
     top:0;
