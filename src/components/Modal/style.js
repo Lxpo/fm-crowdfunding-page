@@ -57,7 +57,7 @@ export const Container = styled.div`
     max-width:${sg.DefaultContainerMaxWidth};
     width:100%;
     padding:${sg.CustomModalPadding};
-    display:flex;
+    display:${({display = 'flex'}) => display};
     flex-direction:column;
     align-items:center;
     justify-content:center;

@@ -4,6 +4,7 @@ import * as data from '../../assets/data/dummyData'
 
 import CloseBtn from '../../assets/icons/icon-close-modal.svg'
 import InfoBlock from '../ui/InfoBlock/Modal'
+import SuccessModal from '../Modal/Success'
 
 const Modal = ({closeModal,passedId,enable = false}) => {
     
@@ -20,10 +21,12 @@ const Modal = ({closeModal,passedId,enable = false}) => {
     useEffect(enableModalHook,[passedId])
 
     console.log('Radio selected', selectedRadio)
+
+    //if confirmPledge true hide BackThisProject, if false show BackThisProject Modal
     
     return(
         <styled.ModalWrapper style={{display: enable ? '':'none'}}>
-            <styled.Container>
+            <styled.Container display={'flex'}>
                 <styled.CloseBtnContainer>
                     <styled.CloseBtn src={CloseBtn} onClick={closeModal}/>
                 </styled.CloseBtnContainer>
@@ -45,12 +48,14 @@ const Modal = ({closeModal,passedId,enable = false}) => {
                                         remaining={item.remaining}
                                         id={item.id}
                                         enable={Number(selectedRadio) === item.id}
-                                        handleClick={changeFunction}/>
+                                        handleClick={changeFunction}
+                                        closeModal={closeModal}/>
                         )
                     }
 
                 </styled.InfoBlockContainer>
             </styled.Container>
+            <SuccessModal closeModal={closeModal} />
         </styled.ModalWrapper>
     )
 }

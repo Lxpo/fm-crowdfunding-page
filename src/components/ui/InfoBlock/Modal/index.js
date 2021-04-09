@@ -4,7 +4,7 @@ import * as sg from '../../../util/styleGuide'
 
 import Button from '../../Button'
 
-const Modal = ({rewardName,text,pledge,remaining,id,handleClick,enable=false,defaultBlock=false}) => {
+const Modal = ({rewardName,text,pledge,remaining,id,handleClick,closeModal,enable=false,defaultBlock=false}) => {
     
     const [ShowFooter, setShowFooter] = useState('none')
     const [borderColor, setBorderColor] = useState(sg.setOpacityDarkGray(0.2))
@@ -52,6 +52,7 @@ const Modal = ({rewardName,text,pledge,remaining,id,handleClick,enable=false,def
             setPledgeInput(pledge)
         } else {
             console.log('Success Modal should show up')
+            
         }
     }
 
@@ -62,6 +63,7 @@ const Modal = ({rewardName,text,pledge,remaining,id,handleClick,enable=false,def
             setPledgeInput(1)
         } else {
             console.log('Success Modal should show up')
+
         }
     }
 

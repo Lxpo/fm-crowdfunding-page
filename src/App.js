@@ -6,7 +6,6 @@ import TitleBlock from './components/TitleBlock'
 import Header from './components/Header'
 import About from './components/About'
 import Modal from './components/Modal'
-import SuccessModal from './components/Modal/Success'
 
 import * as sg from './components/util/styleGuide'
 import * as TB from './components/TitleBlock/style'
@@ -19,6 +18,7 @@ const App = () => {
 
     const [showModal, setShowModal] = useState(false)
     const [selectedRewardId, setSelectedReward] = useState(null)
+    const [confirmPledge, setConfirmPledge] = useState(false)
 
     const MainContent = styled.div`
         margin:0 auto;
@@ -56,7 +56,13 @@ const App = () => {
 
     const closeModal = () => {
         setShowModal(false)
+        displaySuccess(false)
     }
+
+    const displaySuccess = (display) => {
+        setConfirmPledge(display)
+    }
+
 
     return(
         <Container>  
@@ -67,7 +73,6 @@ const App = () => {
                <TitleBlock showModal={displayModal}/>
                <Statistics /> 
                <About showModal={displayModal}/>
-               <SuccessModal />
             </MainContent>  
         </Container>
     )
