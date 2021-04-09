@@ -4,12 +4,13 @@ import * as sg from '../../../util/styleGuide'
 
 import Button from '../../Button'
 
-const Modal = ({rewardName,text,pledge,remaining,id,enable=false,defaultBlock=false, handleClick}) => {
+const Modal = ({rewardName,text,pledge,remaining,id,handleClick,enable=false,defaultBlock=false}) => {
     
     const [ShowFooter, setShowFooter] = useState('none')
     const [borderColor, setBorderColor] = useState(sg.setOpacityDarkGray(0.2))
     const [borderThickness, setBorderThickness] = useState('1px')
     const [onHover, setHover] = useState(false)
+    const [pledgeInput, setPledgeInput] = useState(pledge)
     
     const footerDisplay = {
         display:ShowFooter,
@@ -28,6 +29,8 @@ const Modal = ({rewardName,text,pledge,remaining,id,enable=false,defaultBlock=fa
         color:`${remaining !== 0 && onHover ? sg.ModerateCyan : 'black'}`,
     }
 
+    //Working on Submit Modal
+
     const Hook = () => {
         if(enable){
             setShowFooter('flex')
@@ -44,6 +47,26 @@ const Modal = ({rewardName,text,pledge,remaining,id,enable=false,defaultBlock=fa
 
     const handleForm = (event) => {
         event.preventDefault();
+        if(pledgeInput < pledge) {
+            alert(`Support us by pledging atleast $${pledge} or more`)
+            setPledgeInput(pledge)
+        } else {
+            console.log('Success Modal should show up')
+        }
+    }
+
+    const handleDefaultForm = (event) => {
+        event.preventDefault();
+        if(pledgeInput < 1) {
+            alert(`Support us by pledging atleast $1 or more`)
+            setPledgeInput(1)
+        } else {
+            console.log('Success Modal should show up')
+        }
+    }
+
+    const inputPledge = (event) => {
+        setPledgeInput(event.target.value)
     }
 
     if(defaultBlock){
@@ -81,9 +104,9 @@ const Modal = ({rewardName,text,pledge,remaining,id,enable=false,defaultBlock=fa
                 </styled.Body>
                     <styled.Footer style={footerDisplay}>
                         <styled.Message>Enter your pledge</styled.Message>
-                        <styled.Control>
-                            <styled.Input type={'number'}/>
-                            <Button  text={'Continue'}/>
+                        <styled.Control onSubmit={handleDefaultForm}>
+                            <styled.Input type={'number'} placeholder={1} value={pledgeInput} onChange={inputPledge}/>
+                            <Button text={'Continue'}/>
                         </styled.Control>
                     </styled.Footer>
             </styled.Container>
@@ -128,7 +151,7 @@ const Modal = ({rewardName,text,pledge,remaining,id,enable=false,defaultBlock=fa
                 <styled.Footer style={footerDisplay}>
                     <styled.Message>Enter your pledge</styled.Message>
                     <styled.Control onSubmit={handleForm}>
-                        <styled.Input type={'number'} placeholder={pledge} />
+                        <styled.Input type={'number'} placeholder={pledge} onChange={inputPledge} value={pledgeInput}/>
                         <Button  text={'Continue'}/>
                     </styled.Control>
                 </styled.Footer>
