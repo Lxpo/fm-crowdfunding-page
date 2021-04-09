@@ -59,7 +59,7 @@ export const RadioInput = styled.span`
         }
     }
 `
-export const Control = styled.div`
+export const Control = styled.form`
     display:flex;
     flex-direction:row;
     align-items:center;

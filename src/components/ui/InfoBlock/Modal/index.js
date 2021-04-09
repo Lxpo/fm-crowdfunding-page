@@ -10,7 +10,6 @@ const Modal = ({rewardName,text,pledge,remaining,id,enable=false,defaultBlock=fa
     const [borderColor, setBorderColor] = useState(sg.setOpacityDarkGray(0.2))
     const [borderThickness, setBorderThickness] = useState('1px')
     const [onHover, setHover] = useState(false)
-    const [footerIsActive, setFooterIsActive] = useState(enable)
     
     const footerDisplay = {
         display:ShowFooter,
@@ -42,6 +41,10 @@ const Modal = ({rewardName,text,pledge,remaining,id,enable=false,defaultBlock=fa
     }
 
     useEffect(Hook,[enable])
+
+    const handleForm = (event) => {
+        event.preventDefault();
+    }
 
     if(defaultBlock){
         return(
@@ -124,7 +127,7 @@ const Modal = ({rewardName,text,pledge,remaining,id,enable=false,defaultBlock=fa
                 </styled.Body>
                 <styled.Footer style={footerDisplay}>
                     <styled.Message>Enter your pledge</styled.Message>
-                    <styled.Control>
+                    <styled.Control onSubmit={handleForm}>
                         <styled.Input type={'number'} placeholder={pledge} />
                         <Button  text={'Continue'}/>
                     </styled.Control>

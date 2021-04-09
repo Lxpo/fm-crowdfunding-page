@@ -21,10 +21,26 @@ export const Icon = styled.div`
 export const Container = styled.div`
     max-width: 500px;
     width:100%;
-    display:flex;
+    display:${({display = 'none'}) => display};
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    padding:20px;
+    padding:42px 36px 48px 36px;
     background:white;
+    border-radius:10px;
+
+    > svg {
+        margin-bottom:40px;
+    }
+
+    > ${Heading} {
+        margin-bottom:20px;
+    }
+
+    > ${Message} {
+        margin-bottom:20px;
+    }
+    
 `
+
+//top: ${({ topValue = 0 }) => topValue}px;
