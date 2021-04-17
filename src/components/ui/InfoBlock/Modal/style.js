@@ -3,7 +3,7 @@ import * as sg from '../../../util/styleGuide'
 import dollar from '../../../../assets/icons/dollar-symbol.svg'
 
 export const Input = styled.input`
-    border: 1px solid ${sg.ModerateCyan}; 
+    border: 1px solid ${sg.setOpacityDarkGray(0.6)}; 
     border-radius: 28px;
     padding:18px 36px;
     color:black;
@@ -64,6 +64,7 @@ export const Control = styled.form`
     flex-direction:row;
     align-items:center;
     justify-content:space-between;
+    width:100%;    
 
     > ${Input} {    
         margin-right:20px;
@@ -85,7 +86,15 @@ export const Footer = styled.div`
     justify-content:space-between;
     box-sizing:border-box;
     padding:28px 20px;  
-    border-top:2px solid ${sg.setOpacityDarkGray(0.1)}
+    border-top:2px solid ${sg.setOpacityDarkGray(0.1)};
+
+    @media (max-width:905px) {
+        flex-direction:column;
+
+        > ${Message} {
+            margin-bottom:20px;
+        }
+    }
 `
 export const Description = styled.p`
     font-family:${sg.Font};
@@ -94,6 +103,10 @@ export const Description = styled.p`
     color:${sg.setOpacityDarkGray(0.8)};
     text-align:left;
     line-height:1.8em;
+
+    @media (max-width:905px) {
+       
+    }
 `
 export const Remaining = styled.span`
     display:flex;
@@ -117,7 +130,11 @@ export const Pledge = styled.span`
     font-weight:${sg.Font700};
     font-size:16px;
     color:${sg.ModerateCyan};
-    cursor:pointer;
+
+    @media (max-width:905px) {
+        font-size:15px;
+        font-weight:${sg.Font400}
+    }
 `
 export const RewardName = styled.span`
     font-family:${sg.Font};
@@ -125,6 +142,10 @@ export const RewardName = styled.span`
     font-size:18px;
     color:black;
     cursor:pointer;
+
+    @media (max-width:905px) {
+        font-size:17px;
+    }
 `
 export const RadioButton = styled.div`
     width:20px;
@@ -137,6 +158,10 @@ export const RightGroup = styled.div`
     flex-direction:row;
     align-items:center;
     justify-content:flex-end;
+
+    @media (max-width:905px) {
+        position:relative;
+    }
 `
 export const LeftGroup = styled.div`
     display:flex;
@@ -147,6 +172,17 @@ export const LeftGroup = styled.div`
     >${RewardName} {
         margin-right:16px;
     }
+
+    @media (max-width:905px) {
+        flex-direction:column;
+        align-items:flex-start;
+
+        >${RewardName} {
+            + ${Pledge} {
+                margin-top:14px;
+            }
+        }
+    }
 `
 export const Center = styled.div`
     width:100%;
@@ -155,20 +191,51 @@ export const Center = styled.div`
     justify-content:space-between;
     align-items:center;
 `
-
+export const Label = styled.label`
+    position:relative;
+`
 export const Header = styled.div`
     width: 100%;
     display: flex;
     flex-direction:column;
     justify-content:center;
     align-items:flex-start;
+    position:relative;
 
     > ${Center} {
         margin-bottom:16px;
     }
+
+    @media (max-width:905px) {
+        flex-direction:row;
+        align-items:center;
+        justify-content:flex-start;
+
+        > ${Label} {
+            margin-right:20px;
+        }
+    }
 `
-export const Label = styled.label`
-    position:relative;
+export const BodyMobile = styled.div`
+    display:none;
+    flex-direction:column;
+    align-items:flex-start;
+    padding:28px 20px;  
+
+    > ${Header} {
+        margin-bottom:32px;
+    }
+
+    > ${Description} {
+        + ${Remaining} {
+            margin-top:26px;
+            margin-bottom:12px;
+        }
+    }
+    
+    @media (max-width:905px) {
+        display:flex;
+    }
 `
 export const Body = styled.div`
     width:100%;
@@ -181,6 +248,14 @@ export const Body = styled.div`
 
     > ${Header} {
         margin-left:20px;
+    }
+
+    @media (max-width:905px) {
+        display:none;
+
+        > ${Label} {
+            margin-top:12px;
+        }
     }
 `
 export const Container = styled.div`

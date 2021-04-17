@@ -1,8 +1,9 @@
 import react from 'react'
 import * as styled from './style'
 
-const Header = () => {
+import SVGHamburger from '../ui/Icons/SVGHamburger'
 
+const Header = () => {
     return(
         <styled.Container>
             <styled.Icon>crowdfund</styled.Icon>
@@ -11,6 +12,9 @@ const Header = () => {
                 <styled.NavItem>Discover</styled.NavItem>
                 <styled.NavItem>Get Started</styled.NavItem>
             </styled.NavMenu>
+            <styled.CollapsedMenu>
+                <SVGHamburger />
+            </styled.CollapsedMenu>
         </styled.Container>
     )
 }

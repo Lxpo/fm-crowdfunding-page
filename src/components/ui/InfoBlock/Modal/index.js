@@ -71,11 +71,13 @@ const Modal = ({rewardName,text,pledge,remaining,id,handleClick,confirmPledge,se
         setPledgeInput(event.target.value)
     }
 
+    //Fix position of 'Remaining'
+
     if(defaultBlock){
         return(
             <styled.Container style={ContainerInline}>
                 <styled.Body>
-                    <styled.Label>
+                    <styled.Label style={{marginTop:'0px',}}>
                         <styled.RadioInput>
                             <styled.Radio   type={'radio'}  
                                             name={'modalGroup'} 
@@ -104,7 +106,38 @@ const Modal = ({rewardName,text,pledge,remaining,id,handleClick,confirmPledge,se
                         </styled.Description>
                     </styled.Header>
                 </styled.Body>
-                    <styled.Footer style={footerDisplay}>
+
+                 {/*Displays if on mobile screens*/}
+                 <styled.BodyMobile>
+                    <styled.Header>
+                        <styled.Label style={{marginTop:'0px',}}>
+                            <styled.RadioInput>
+                                <styled.Radio   type={'radio'}  
+                                                name={'modalGroup'} 
+                                                value={'default'} 
+                                                onClick={handleClick} 
+                                                checked={enable}
+                                                />
+                                <styled.RadioControl    style={RadioBorderOnHover} 
+                                                        onMouseEnter={() => setHover(true)} 
+                                                        onMouseLeave={() => setHover(false)}/>
+                            </styled.RadioInput>
+                        </styled.Label>
+                        <styled.LeftGroup   onMouseEnter={() => setHover(true)} 
+                                                onMouseLeave={() => setHover(false)}>
+                                <styled.RewardName  style={rewardNameInline} 
+                                                    onClick={handleClick}
+                                                    id={'default'}
+                                                    >Pledge with no reward</styled.RewardName>
+                        </styled.LeftGroup>
+                    </styled.Header>
+                    <styled.Description>
+                        Choose to support us without a reward if you simply believe in our project. As a backer, 
+                        you will be signed up to receive product updates via email.
+                    </styled.Description>
+                 </styled.BodyMobile>
+                
+                <styled.Footer style={footerDisplay}>
                         <styled.Message>Enter your pledge</styled.Message>
                         <styled.Control onSubmit={handleDefaultForm}>
                             <styled.Input type={'number'} placeholder={1} value={pledgeInput} onChange={inputPledge}/>
@@ -116,6 +149,7 @@ const Modal = ({rewardName,text,pledge,remaining,id,handleClick,confirmPledge,se
     } else {
         return(
             <styled.Container style={ContainerInline}>
+
                 <styled.Body>
                     <styled.Label>
                         <styled.RadioInput  >
@@ -138,7 +172,8 @@ const Modal = ({rewardName,text,pledge,remaining,id,handleClick,confirmPledge,se
                                 <styled.RewardName style={rewardNameInline} 
                                                    onClick={remaining !== 0 ? handleClick : undefined}
                                                    id={id}>   
-                                                    {rewardName}</styled.RewardName>
+                                                    {rewardName}
+                                </styled.RewardName>
                                 <styled.Pledge >Pledge ${pledge} or more</styled.Pledge>
                             </styled.LeftGroup>
                             <styled.RightGroup>
@@ -150,6 +185,39 @@ const Modal = ({rewardName,text,pledge,remaining,id,handleClick,confirmPledge,se
                         </styled.Description>
                     </styled.Header>
                 </styled.Body>
+
+                {/*Displays if on mobile screens*/}
+                <styled.BodyMobile>
+                   <styled.Header>
+                        <styled.Label>
+                            <styled.RadioInput  >
+                                <styled.Radio   type={'radio'}  
+                                                name={'modalGroup'} 
+                                                value={id} 
+                                                disabled={remaining == 0}     
+                                                onClick={handleClick} 
+                                                checked={enable}
+                                />
+                                <styled.RadioControl    style={RadioBorderOnHover} 
+                                                        onMouseEnter={() => setHover(true)} 
+                                                        onMouseLeave={() => setHover(false)}/>
+                            </styled.RadioInput>
+                        </styled.Label>
+                        <styled.LeftGroup   onMouseEnter={() => setHover(true)} 
+                                                onMouseLeave={() => setHover(false)}>
+                                <styled.RewardName style={rewardNameInline} 
+                                                   onClick={remaining !== 0 ? handleClick : undefined}
+                                                   id={id}>   
+                                                    {rewardName}
+                                </styled.RewardName>
+                                <styled.Pledge >Pledge ${pledge} or more</styled.Pledge>
+                            </styled.LeftGroup>
+                   </styled.Header>
+                   <styled.Description>{text}</styled.Description>
+                   <styled.Remaining>{remaining}</styled.Remaining>
+                </styled.BodyMobile>
+
+
                 <styled.Footer style={footerDisplay}>
                     <styled.Message>Enter your pledge</styled.Message>
                     <styled.Control onSubmit={handleForm}>

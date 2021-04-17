@@ -29,7 +29,8 @@ export const Container = styled.div`
     box-sizing:border-box;
 
     > ${Header} {
-        margin-bottom:40px;
+        margin-top:28px;
+        margin-bottom:26px;
     }
 
     > ${Description} {
@@ -38,5 +39,9 @@ export const Container = styled.div`
 
     > ${ib.Container} {
         margin-bottom:24px;
+    }
+
+    @media (max-width:905px) {
+        padding: ${sg.CardMobilePadding};
     }
 `

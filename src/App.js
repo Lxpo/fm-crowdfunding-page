@@ -39,6 +39,10 @@ const App = () => {
         > ${STAT.Container} {
             margin-bottom: 24px;
         }
+
+        @media (max-width:905px) {
+            max-width: 400px;
+        }
     `
     const Container = styled.div`
         padding-bottom: 32px;
@@ -67,6 +71,8 @@ const App = () => {
     const addBacker = () => {
         setBackers(backers + 1)
     }
+
+    //It is time to learn Proper Responsiveness
 
     return(
         <Container>  

@@ -19,16 +19,57 @@ export const StatisticsContainer = styled.div`
             padding:10px 0px 0px 0px
         }
     }
+
+    @media (max-width:905px) {
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+
+        > ${stat.Statistic} {
+            border-right: 0px ${sg.setOpacityDarkGray(0)};
+            padding:0px;
+            align-items:center;
+
+            &:after{
+                content:" ";
+                display:block;
+                max-width:93px;
+                width:100%;
+                padding-top:1px;
+                background:${sg.setOpacityDarkGray(0.3)};
+                margin:24px 0px 24px 0px;
+            }
+
+            &:last-of-type {
+                
+                border-bottom:none;
+
+                &:after{
+                    display:none;
+                }
+            }
+
+            &:first-of-type{
+               
+            }
+        }
+    }
+
 `
 export const Card = styled.div`
     width:100%;
     background:white;
     border-radius: 10px;
-    padding: 60px 100px 50px;
+    padding: 60px 100px 80px;
     box-sizing:border-box;
 
     > ${StatisticsContainer} {
         margin-bottom:40px;
+    }
+
+    @media (max-width:905px) {
+        padding: ${sg.CardMobilePadding};
     }
 `
 export const Container = styled.div`
@@ -40,6 +81,5 @@ export const Container = styled.div`
     position: relative;
     border: 1px solid ${sg.setOpacityDarkGray(0.1)};
     border-radius: 10px;
-    
 `
 

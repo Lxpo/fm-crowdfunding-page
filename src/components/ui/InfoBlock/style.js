@@ -17,6 +17,15 @@ export const Remaining = styled.span`
         margin-left:10px;
         margin-top:4px;
     }
+
+    @media (max-width:905px) {
+        font-size:40px;
+
+        &:after{
+            margin-left:10px;
+            margin-top:14px;
+        }        
+    }
 `
 export const Pledge = styled.span`
     font-family:${sg.Font};
@@ -37,6 +46,20 @@ export const Footer = styled.div`
     align-items:center;
     justify-content:space-between;
     width:100%;
+    box-sizing:border-box;
+
+    @media (max-width:905px) {
+        flex-direction:column;
+        align-items:flex-start;
+
+        >${Remaining}{
+            margin-bottom:32px;
+        }
+
+        > button {
+            max-width:70%;
+        }
+    }
 `
 export const Description = styled.p`
     font-family:${sg.Font};
@@ -47,7 +70,7 @@ export const Description = styled.p`
     line-height:2em;
 `
 export const TextContainer = styled.div`
-    width:100$;
+    width:100%;
 `
 export const Header = styled.div`
     display:flex;
@@ -55,6 +78,15 @@ export const Header = styled.div`
     align-items:center;
     justify-content:space-between;
     width:100%;
+
+    @media (max-width:905px) {
+        flex-direction:column;
+        align-items:flex-start;
+
+        >${Name}{
+            margin-bottom:14px;
+        }
+    }
 `
 export const Container = styled.div`
     display:flex;
@@ -65,7 +97,7 @@ export const Container = styled.div`
     border:1px solid ${sg.setOpacityDarkGray(0.2)};
     border-radius:10px;
     box-sizing:border-box;
-    padding:40px 32px 24px 32px;
+    padding:32px 28px 22px 32px;
 
     > ${Header} {
         margin-bottom:28px;
@@ -73,5 +105,12 @@ export const Container = styled.div`
 
     > ${TextContainer} {
         margin-bottom:20px;
+    }
+
+    
+    @media (max-width:905px) {
+        >${TextContainer}{
+            margin-bottom:32px;
+        }
     }
 `

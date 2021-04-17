@@ -16,3 +16,5 @@ export const DefaultCardPadding = `60px 100px 50px 100px`;
 export const DefaultContainerMaxWidth = `900px`;
 
 export const CustomModalPadding = `40px 80px`;
+
+export const CardMobilePadding = `24px 24px 40px`

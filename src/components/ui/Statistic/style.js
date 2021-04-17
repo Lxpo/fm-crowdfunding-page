@@ -5,6 +5,10 @@ export const Description = styled.p`
     color: ${sg.setOpacityDarkGray(0.9)};
     font-size: 16px;
     font-weight: ${sg.Font400};
+
+    @media (max-width:905px) {
+        font-size:14px;
+    }
 `
 export const Value = styled.span`
     color:black;

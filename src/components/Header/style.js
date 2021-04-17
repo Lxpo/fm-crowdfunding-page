@@ -1,5 +1,19 @@
 import styled from 'styled-components'
 
+export const CollapsedMenu = styled.div`
+    display:none;
+    max-width:25px;
+    width:100%;
+    flex-direction: row;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+
+    @media (max-width:905px) {
+        display:flex;
+    }
+
+`
 export const Icon = styled.span`
     font-size:32px;
     font-weight: 700;
@@ -26,6 +40,10 @@ export const NavMenu = styled.ul`
         margin-right:24px;
     }
 
+    @media (max-width:905px) {
+        display:none;
+    }
+
 `
 export const Container  = styled.div`
     display:flex;
@@ -44,5 +62,23 @@ export const Container  = styled.div`
 
     >${NavMenu} {
         margin-right: 170px;
+    }
+
+    >${CollapsedMenu} {
+        margin-right:20px;
+    }
+
+    @media (max-width: 905px) {
+        padding:40px 20px 0px 20px;
+
+        > ${Icon} {
+            margin-left: 0px;
+        }
+
+        >${NavMenu} {
+            margin-right: 0px;
+        }
+
+        
     }
 `

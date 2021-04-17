@@ -7,18 +7,37 @@ export const Control = styled.div`
     align-items:center;
     justify-content:space-between;
     width:100%;
+
+    @media (max-width:905px) {
+        > button {
+            margin-right:12px;
+        }
+    }
 `
 export const Description = styled.p`
     font-weight: ${sg.Font400};
     font-size: 18px;
     font-family: ${sg.Font};
     color:${sg.DarkGray};
+    text-align:center;
+    line-height:1.8em;
+
+    @media (max-width:905px) {
+        font-size:16px;
+    }
 `
 export const ProductName = styled.h2`
+    max-width:80%;
     font-weight: ${sg.Font700};
     font-size: 32px;
     font-family: ${sg.Font};
     color:${sg.Black};
+    text-align:center;
+    line-height:1.2em;
+
+    @media (max-width:905px) {
+        font-size:24px;
+    }
 `
 export const Card = styled.div`
     width:100%;
@@ -38,6 +57,10 @@ export const Card = styled.div`
 
     > ${Description} {
         margin-bottom:32px;
+    }
+
+    @media (max-width:905px) {
+        padding: 56px 28px 40px 28px;
     }
 `
 export const ProductIcon = styled.div`

@@ -29,6 +29,11 @@ export const Header = styled.div`
 export const CloseBtn = styled.img`
     width:max-content;
     cursor:pointer;
+
+    @media (max-width:905px) {
+        position:absolute;
+        top:4px;
+    }
 `
 export const CloseBtnContainer = styled.div`
     width:100%;
@@ -36,6 +41,7 @@ export const CloseBtnContainer = styled.div`
     flex-direction:row;
     align-items:center;
     justify-content:flex-end;
+    position:relative;    
 `
 export const InfoBlockContainer = styled.div`
     width:100%;
@@ -77,6 +83,11 @@ export const Container = styled.div`
         &:last-of-type{
             margin-bottom:0px;
         }
+    }
+
+    @media (max-width:905px) {
+        max-width: 400px;
+        padding: ${sg.CardMobilePadding};
     }
 `
 export const ModalWrapper = styled.div`

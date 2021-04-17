@@ -11,13 +11,22 @@ export const Text = styled.span`
     -khtml-user-select: none; 
     -moz-user-select: none; 
     -ms-user-select: none; 
-    user-select: none;                            
+    user-select: none;       
+    
+    @media (max-width:905px) {
+        display:none;
+    }
+    
 `
 export const Icon = styled.div`
     max-width:max-content;
     position:absolute;
     top:0;
     left:0;
+
+    @media (max-width:905px) {
+        position:relative;
+    }
 `
 export const Bookmark = styled.div`
     display:flex;
@@ -35,5 +44,11 @@ export const Bookmark = styled.div`
     > ${Text} {
         margin-left: 2em;
     }
-    
+
+    @media (max-width:905px) {
+        padding:0px;
+        > ${Text} {
+            margin-left: 0px;
+        }
+    }
 `
