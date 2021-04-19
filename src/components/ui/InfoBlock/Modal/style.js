@@ -63,12 +63,19 @@ export const Control = styled.form`
     display:flex;
     flex-direction:row;
     align-items:center;
-    justify-content:space-between;
-    width:100%;    
-
+    justify-content:space-between; 
+      
+    > button {
+        max-width:100%;
+    }
+    
     > ${Input} {    
         margin-right:20px;
-    } 
+    }
+    
+    @media (max-width:905px) {
+        width:100%; 
+    }
 `
 export const Message = styled.span`
     font-family:${sg.Font};

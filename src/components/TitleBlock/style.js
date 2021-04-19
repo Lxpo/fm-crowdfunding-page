@@ -7,10 +7,15 @@ export const Control = styled.div`
     align-items:center;
     justify-content:space-between;
     width:100%;
+    
+    > button {
+        max-width:30%;
+    }
 
     @media (max-width:905px) {
         > button {
             margin-right:12px;
+            max-width:100%;
         }
     }
 `

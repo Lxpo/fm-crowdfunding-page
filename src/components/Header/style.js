@@ -12,7 +12,6 @@ export const CollapsedMenu = styled.div`
     @media (max-width:905px) {
         display:flex;
     }
-
 `
 export const Icon = styled.span`
     font-size:32px;
@@ -64,12 +63,12 @@ export const Container  = styled.div`
         margin-right: 170px;
     }
 
-    >${CollapsedMenu} {
-        margin-right:20px;
-    }
+    
 
     @media (max-width: 905px) {
-        padding:40px 20px 0px 20px;
+        max-width:400px;
+        margin:0 auto;
+        padding:40px 0px 0px 0px;
 
         > ${Icon} {
             margin-left: 0px;

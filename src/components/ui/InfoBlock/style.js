@@ -48,6 +48,10 @@ export const Footer = styled.div`
     width:100%;
     box-sizing:border-box;
 
+    > button {
+        max-width:30%;
+    }
+
     @media (max-width:905px) {
         flex-direction:column;
         align-items:flex-start;
