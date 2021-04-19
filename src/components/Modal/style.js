@@ -23,7 +23,7 @@ export const Header = styled.div`
     align-content: flex-start;
 
     > ${Title} {
-        margin-bottom:18px;
+        margin-bottom:24px;
     }
 `
 export const CloseBtn = styled.img`
@@ -74,7 +74,7 @@ export const Container = styled.div`
     top:40px;
 
     > ${Header} {
-        margin-bottom:12px;
+        margin-bottom:28px;
     }
 
     > ${InfoBlock.Container} {
