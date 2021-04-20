@@ -52,6 +52,15 @@ const App = () => {
             margin-top:18em;
         }
     `
+    const MobileMenuOverlay = styled.div`
+        position:absolute;
+        width:100%;
+        height:100%;
+        background: rgb(0,0,0);
+        background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(126,126,126,0.3) 64%, rgba(255,255,255,0.1) 100%);
+        top:0;
+        left:0;
+    `
 
     const displayModal = (event) => {
         setShowModal(true)
@@ -72,8 +81,6 @@ const App = () => {
         setBackers(backers + 1)
     }
 
-    //It is time to learn Proper Responsiveness
-
     return(
         <Container>  
             <HeroBanner/>
@@ -89,7 +96,8 @@ const App = () => {
                <TitleBlock showModal={displayModal}/>
                <Statistics backers={backers}/> 
                <About showModal={displayModal}/>
-            </MainContent>  
+            </MainContent>
+            <MobileMenuOverlay />  
         </Container>
     )
 }
