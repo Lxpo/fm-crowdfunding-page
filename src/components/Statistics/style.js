@@ -61,7 +61,7 @@ export const Card = styled.div`
     width:100%;
     background:white;
     border-radius: 10px;
-    padding: 60px 100px 80px;
+    padding: ${sg.DefaultCardPadding};
     box-sizing:border-box;
 
     > ${StatisticsContainer} {

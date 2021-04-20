@@ -25,7 +25,7 @@ export const Container = styled.div`
     background: white;
     border-radius:10px;
     border:1px solid ${sg.setOpacityDarkGray(0.1)};
-    padding: 60px 100px 50px;
+    padding: ${sg.DefaultCardPadding};
     box-sizing:border-box;
 
     > ${Header} {
