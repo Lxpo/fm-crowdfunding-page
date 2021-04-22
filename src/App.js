@@ -20,6 +20,7 @@ const App = () => {
     const [selectedRewardId, setSelectedReward] = useState(null)
     const [confirmPledge, setConfirmPledge] = useState(false)
     const [backers, setBackers] = useState(5007)
+    const [isMobileMenuActive, setIsMobileMenuActive]  = useState(false)
 
     const MainContent = styled.div`
         margin:0 auto;
@@ -53,13 +54,18 @@ const App = () => {
         }
     `
     const MobileMenuOverlay = styled.div`
+        display:${({display='none'}) => display};
         position:absolute;
         width:100%;
         height:100%;
         background: rgb(0,0,0);
-        background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(126,126,126,0.3) 64%, rgba(255,255,255,0.1) 100%);
+        background: linear-gradient(180deg, rgba(31,31,31,0.6) 0%, rgba(126,126,126,0.3) 24%, rgba(255,255,255,0.1) 100%);
         top:0;
         left:0;
+
+        @media (min-width:905px) {
+            display:none;
+        }
     `
 
     const displayModal = (event) => {
@@ -81,10 +87,19 @@ const App = () => {
         setBackers(backers + 1)
     }
 
+    const onMobileMenuClick = () => {
+        console.log('clicking... function')
+        if(isMobileMenuActive) {
+            setIsMobileMenuActive(false)
+        }else{
+            setIsMobileMenuActive(true)
+        }
+    }
+
     return(
         <Container>  
             <HeroBanner/>
-            <Header />
+            <Header isMobileMenuActive={isMobileMenuActive} onMobileMenuClick={onMobileMenuClick} />
             <Modal  enable={showModal} 
                     closeModal={closeModal}     
                     passedId={selectedRewardId} 
@@ -97,7 +112,7 @@ const App = () => {
                <Statistics backers={backers}/> 
                <About showModal={displayModal}/>
             </MainContent>
-            <MobileMenuOverlay />  
+            <MobileMenuOverlay display={isMobileMenuActive ? 'block' : 'none'}/>  
         </Container>
     )
 }

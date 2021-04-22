@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import SvgIcon from '../../../../assets/icons/icon-hamburger.svg'
 
 export const Icon = styled.div`
+    display:${({display='block'}) => display};
     width: 100%;
     background-image: url(${SvgIcon});
     background-size: cover;

@@ -2,10 +2,15 @@ import styled from 'styled-components'
 import * as sg from '../util/styleGuide'
 
 export const NaveMenuMobileWrapper = styled.div`
+    display:${({display ='none'}) => display};
     position:absolute;
     width:100%;
     height:100%;
     top:100px;
+
+    @media (min-width:905px) {
+        display:none;
+    }
 `
 export const NavMenuMobileItem = styled.li`
     padding:20px;
