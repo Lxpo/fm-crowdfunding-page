@@ -45,7 +45,14 @@ export const setAmount = (amount) => {
     ProjectStatistics.amount = Number(amount) + ProjectStatistics.amount
 }
 
-export const reduceRemaining = () => {
-    
-
+export const reduceRemaining = (id) => {
+    //Gets the specific reward using the ID
+    const reward = ModalInfoBlockData.find(item => item.id == id)
+    //Update reward remaining
+    let newRemaining = reward.remaining - 1;
+    //Get index of the reward
+    let index = ModalInfoBlockData.indexOf(reward)
+    //Copy object then set new value for specific property
+    const updatedReward = {...reward, remaining:newRemaining}
+    ModalInfoBlockData[index] = updatedReward
 }

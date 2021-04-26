@@ -21,7 +21,6 @@ const Modal = ({rewardName,
     const [borderThickness, setBorderThickness] = useState('1px')
     const [onHover, setHover] = useState(false)
     const [pledgeInput, setPledgeInput] = useState(pledge)
-
     
     const footerDisplay = {
         display:ShowFooter,
@@ -62,9 +61,10 @@ const Modal = ({rewardName,
         } else {
             confirmPledge(true)
             setBackers()
-            console.log('defaultForm input', pledgeInput)
             data.setAmount(pledgeInput)
             setPledgeInput(0)
+            console.log('Hello this is the form event ',event.target.id)
+            data.reduceRemaining(event.target.id)
             //This is where you get the pledge amount
         }
     }
@@ -77,17 +77,16 @@ const Modal = ({rewardName,
         } else {
             confirmPledge(true)
             setBackers()
-            console.log('defaultForm input', pledgeInput)
             data.setAmount(pledgeInput)
             setPledgeInput(0)
              //This is where you get the pledge amount
         }
     }
+
+    //Function to get amount to pledge from form
     const inputPledge = (event) => {
-        console.log('THE Input Pledge ',event.target)
         setPledgeInput(event.target.value)
     }
-
 
     if(defaultBlock){
         return(
@@ -237,7 +236,7 @@ const Modal = ({rewardName,
                 </styled.BodyMobile>
                 <styled.Footer style={footerDisplay}>
                     <styled.Message>Enter your pledge</styled.Message>
-                    <styled.Control onSubmit={handleForm}>
+                    <styled.Control onSubmit={handleForm} id={id}>
                         <styled.Input type={'number'} placeholder={pledge} onChange={inputPledge} value={pledgeInput}/>
                         <Button  text={'Continue'}/>
                     </styled.Control>
