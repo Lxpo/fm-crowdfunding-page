@@ -35,6 +35,7 @@ const Modal = ({closeModal,passedId,pledgeConfirm,displayConfirm,setBackers,enab
                                 id={0} 
                                 handleClick={changeFunction} 
                                 enable={selectedRadio === 'default'}
+                                pledge={1}
                                 confirmPledge={displayConfirm}
                                 setBackers={setBackers}
                                 />

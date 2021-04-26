@@ -1,16 +1,27 @@
 import React,{useEffect, useState} from 'react'
 import * as styled from './style'
 import * as sg from '../../../util/styleGuide'
+import * as data from '../../../../assets/data/dummyData'
 
 import Button from '../../Button'
 
-const Modal = ({rewardName,text,pledge,remaining,id,handleClick,confirmPledge,setBackers,enable=false,defaultBlock=false}) => {
+const Modal = ({rewardName,
+                text,
+                pledge,
+                remaining,
+                id,
+                handleClick,
+                confirmPledge,
+                setBackers,
+                enable=false,
+                defaultBlock=false }) => {
     
     const [ShowFooter, setShowFooter] = useState('none')
     const [borderColor, setBorderColor] = useState(sg.setOpacityDarkGray(0.2))
     const [borderThickness, setBorderThickness] = useState('1px')
     const [onHover, setHover] = useState(false)
     const [pledgeInput, setPledgeInput] = useState(pledge)
+
     
     const footerDisplay = {
         display:ShowFooter,
@@ -51,6 +62,9 @@ const Modal = ({rewardName,text,pledge,remaining,id,handleClick,confirmPledge,se
         } else {
             confirmPledge(true)
             setBackers()
+            console.log('defaultForm input', pledgeInput)
+            data.setAmount(pledgeInput)
+            setPledgeInput(0)
             //This is where you get the pledge amount
         }
     }
@@ -63,15 +77,17 @@ const Modal = ({rewardName,text,pledge,remaining,id,handleClick,confirmPledge,se
         } else {
             confirmPledge(true)
             setBackers()
+            console.log('defaultForm input', pledgeInput)
+            data.setAmount(pledgeInput)
+            setPledgeInput(0)
              //This is where you get the pledge amount
         }
     }
-
     const inputPledge = (event) => {
+        console.log('THE Input Pledge ',event.target)
         setPledgeInput(event.target.value)
     }
 
-    //Fix position of 'Remaining'
 
     if(defaultBlock){
         return(
@@ -84,6 +100,7 @@ const Modal = ({rewardName,text,pledge,remaining,id,handleClick,confirmPledge,se
                                             value={'default'} 
                                             onClick={handleClick} 
                                             checked={enable}
+                                            onChange={e => {}}
                                             />
                             <styled.RadioControl    style={RadioBorderOnHover} 
                                                     onMouseEnter={() => setHover(true)} 
@@ -117,6 +134,7 @@ const Modal = ({rewardName,text,pledge,remaining,id,handleClick,confirmPledge,se
                                                 value={'default'} 
                                                 onClick={handleClick} 
                                                 checked={enable}
+                                                onChange={e => {}}
                                                 />
                                 <styled.RadioControl    style={RadioBorderOnHover} 
                                                         onMouseEnter={() => setHover(true)} 
@@ -149,7 +167,6 @@ const Modal = ({rewardName,text,pledge,remaining,id,handleClick,confirmPledge,se
     } else {
         return(
             <styled.Container style={ContainerInline}>
-
                 <styled.Body>
                     <styled.Label>
                         <styled.RadioInput  >
@@ -159,7 +176,8 @@ const Modal = ({rewardName,text,pledge,remaining,id,handleClick,confirmPledge,se
                                             disabled={remaining == 0}     
                                             onClick={handleClick} 
                                             checked={enable}
-                            />
+                                            onChange={e => {}}
+                                            />
                             <styled.RadioControl    style={RadioBorderOnHover} 
                                                     onMouseEnter={() => setHover(true)} 
                                                     onMouseLeave={() => setHover(false)}/>
@@ -191,12 +209,13 @@ const Modal = ({rewardName,text,pledge,remaining,id,handleClick,confirmPledge,se
                    <styled.Header>
                         <styled.Label>
                             <styled.RadioInput  >
-                                <styled.Radio   type={'radio'}  
+                                <styled.Radio   type={'Radio'}  
                                                 name={'modalGroup'} 
                                                 value={id} 
                                                 disabled={remaining == 0}     
                                                 onClick={handleClick} 
                                                 checked={enable}
+                                                onChange={e => {}}
                                 />
                                 <styled.RadioControl    style={RadioBorderOnHover} 
                                                         onMouseEnter={() => setHover(true)} 
@@ -216,8 +235,6 @@ const Modal = ({rewardName,text,pledge,remaining,id,handleClick,confirmPledge,se
                    <styled.Description>{text}</styled.Description>
                    <styled.Remaining>{remaining}</styled.Remaining>
                 </styled.BodyMobile>
-
-
                 <styled.Footer style={footerDisplay}>
                     <styled.Message>Enter your pledge</styled.Message>
                     <styled.Control onSubmit={handleForm}>

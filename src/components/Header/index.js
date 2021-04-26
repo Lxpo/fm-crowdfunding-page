@@ -6,12 +6,7 @@ import SVGClose from '../ui/Icons/SVGClose'
 
 const Header = ({isMobileMenuActive,onMobileMenuClick}) => {
 
-    console.log('function', onMobileMenuClick)
-    console.log('variable', isMobileMenuActive)
-
     const [iSOpen, setiSOpen] = useState(false)
-
-    //You were gonna set isMobileMenuActive on SVGClose
 
     return(
             <styled.Container>

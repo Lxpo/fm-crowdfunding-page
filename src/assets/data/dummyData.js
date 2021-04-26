@@ -1,3 +1,10 @@
+export const ProjectStatistics = {
+    amount:40000,
+    amountNeeded:100000,
+    backers:5007,
+    daysLeft:56,
+}
+
 export const ModalInfoBlockData = [
     {
         id:1,
@@ -30,6 +37,15 @@ export const getData = () => {
         }
         return item
     })
-
     return data
+}
+
+export const setAmount = (amount) => {
+    console.log(`amount is type`, typeof(amount))
+    ProjectStatistics.amount = Number(amount) + ProjectStatistics.amount
+}
+
+export const reduceRemaining = () => {
+    
+
 }

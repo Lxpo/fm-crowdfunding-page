@@ -80,7 +80,6 @@ const App = () => {
 
     const displaySuccess = (display) => {
         setConfirmPledge(display)
-        console.log('Number of Backers', backers)
     }
 
     const addBacker = () => {
@@ -88,7 +87,6 @@ const App = () => {
     }
 
     const onMobileMenuClick = () => {
-        console.log('clicking... function')
         if(isMobileMenuActive) {
             setIsMobileMenuActive(false)
         }else{
