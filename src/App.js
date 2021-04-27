@@ -45,7 +45,7 @@ const App = () => {
             max-width:85%;
         }
 
-        @media (min-width:${sg.Tablet}) {
+        @media (min-width:${sg.Laptop}) {
             max-width:85%;
         }
 
@@ -60,7 +60,22 @@ const App = () => {
         > ${MainContent} { 
             margin-top:18em;
         }
+
+        @media (min-width:${sg.Tablet}) {
+            > ${MainContent} { 
+                margin-top:8%;
+            }
+        }
+
+        @media (min-width:${sg.Laptop}) {
+            > ${MainContent} { 
+                margin-top:18em;
+            }
+        }
+
     `
+    //You were figuring out if you will be using min-width or max-width for the MainContent container
+
     const MobileMenuOverlay = styled.div`
         display:${({display='none'}) => display};
         position:absolute;

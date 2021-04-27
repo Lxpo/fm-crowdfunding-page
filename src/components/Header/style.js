@@ -8,7 +8,7 @@ export const NaveMenuMobileWrapper = styled.div`
     height:100%;
     top:100px;
 
-    @media (min-width:905px) {
+    @media (min-width:${sg.Tablet}) {
         display:none;
     }
 `
@@ -44,7 +44,7 @@ export const CollapsedMenu = styled.div`
     cursor:pointer;
     z-index:1;
 
-    @media (max-width:905px) {
+    @media (max-width:${sg.Tablet}) {
         display:flex;
     }
 `
@@ -75,7 +75,7 @@ export const NavMenu = styled.ul`
         margin-right:24px;
     }
 
-    @media (max-width:905px) {
+    @media (max-width:${sg.Tablet}) {
         display:none;
     }
 
@@ -84,6 +84,8 @@ export const Container  = styled.div`
     display:flex;
     flex-direction:row;
     justify-content:space-between;
+    max-width:83%;
+    margin:0 auto;
     width: 100%;
     position: relative;
     z-index:1;
@@ -91,29 +93,16 @@ export const Container  = styled.div`
     box-sizing: border-box;
     font-family: 'Commissioner', sans-serif;
 
-    > ${Icon} {
-        margin-left: 165px;
-    }
 
-    >${NavMenu} {
-        margin-right: 170px;
-    }
-
-    
-
-    @media (max-width: 905px) {
-        max-width:400px;
+    @media (min-width: ${sg.Tablet}) {
+        width:100%;
         margin:0 auto;
         padding:40px 0px 0px 0px;
+    }
 
-        > ${Icon} {
-            margin-left: 0px;
-        }
-
-        >${NavMenu} {
-            margin-right: 0px;
-        }
-
-        
+    @media (max-width: ${sg.Tablet}) {
+        width:100%;
+        margin:0 auto;
+        padding:40px 0px 0px 0px;
     }
 `
