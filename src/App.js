@@ -41,8 +41,16 @@ const App = () => {
             margin-bottom: 24px;
         }
 
-        @media (max-width:905px) {
-            max-width: 400px;
+        @media (min-width:${sg.Mobile}) {
+            max-width:85%;
+        }
+
+        @media (min-width:${sg.Tablet}) {
+            max-width:85%;
+        }
+
+        @media (min-width:${sg.Desktop}) {
+            max-width:${sg.DefaultContainerMaxWidth};
         }
     `
     const Container = styled.div`
@@ -63,7 +71,7 @@ const App = () => {
         top:0;
         left:0;
 
-        @media (min-width:905px) {
+        @media (min-width:${sg.Tablet}) {
             display:none;
         }
     `

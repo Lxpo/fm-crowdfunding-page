@@ -1,15 +1,11 @@
-import react from 'react'
+import React from 'react'
 import * as styled from './style'
-
-
-
 
 const HeroBanner = () => {
 
     return(
         <styled.Container>
             
-        
         </styled.Container>
     )
 }

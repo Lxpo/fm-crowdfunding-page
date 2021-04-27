@@ -18,3 +18,8 @@ export const DefaultContainerMaxWidth = `900px`;
 export const CustomModalPadding = `40px 80px`;
 
 export const CardMobilePadding = `24px 24px 40px`
+
+export const Mobile = `280px`
+export const Landscape = `768px`
+export const Tablet = `992px`
+export const Desktop = `1200px`

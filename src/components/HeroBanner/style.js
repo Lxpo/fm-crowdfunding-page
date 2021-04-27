@@ -12,11 +12,12 @@ export const Container = styled.div`
     box-sizing:border-box;
 
     @media (max-width:905px) {
+        padding: 100px;
         background: center / cover no-repeat url(${imgMobile});
     }
 `
 export const Image = styled.img`
-    max-width:100%;
+    max-width:200px;
     width:100%;   
     height:auto;
 `
