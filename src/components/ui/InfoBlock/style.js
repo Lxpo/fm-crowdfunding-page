@@ -32,7 +32,6 @@ export const Pledge = styled.span`
     font-weight:${sg.Font400};
     font-size:16px;
     color:${sg.ModerateCyan};
-    cursor:pointer;
 `
 export const Name = styled.h4`
     font-family:${sg.Font};
