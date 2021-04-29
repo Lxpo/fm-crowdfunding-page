@@ -54,6 +54,18 @@ export const Icon = styled.span`
     color:white;
     font-family: 'Commissioner', sans-serif;
     z-index:1;
+
+    @media (min-width:${sg.Mobile}) {
+        font-size:22px;
+    }
+
+    @media (min-width:${sg.Landscape}) {
+        font-size:24px;
+    }
+
+    @media (min-width:${sg.Tablet}) {
+        font-size:32px;
+    }
 `
 export const NavItem = styled.li`
     font-size:16px;
@@ -84,7 +96,7 @@ export const Container  = styled.div`
     display:flex;
     flex-direction:row;
     justify-content:space-between;
-    max-width:83%;
+    max-width:82.5%;
     margin:0 auto;
     width: 100%;
     position: relative;
@@ -93,16 +105,34 @@ export const Container  = styled.div`
     box-sizing: border-box;
     font-family: 'Commissioner', sans-serif;
 
+    @media (min-width: ${sg.Mobile}) {
+        max-width:85%;
+        width:100%;
+        margin:0 auto;
+        padding:20px 0px 0px 0px;
+    }       
 
     @media (min-width: ${sg.Tablet}) {
+        max-width:85%;
         width:100%;
         margin:0 auto;
-        padding:40px 0px 0px 0px;
-    }
+        padding:32px 0px 0px 0px;
+    }       
 
-    @media (max-width: ${sg.Tablet}) {
+    @media (min-width: ${sg.Laptop}) {
+        max-width:85%;
         width:100%;
         margin:0 auto;
-        padding:40px 0px 0px 0px;
-    }
+        padding:50px 0px 0px 0px;
+    }      
+    
+    @media (min-width: ${sg.Desktop}) {
+        max-width:76.5%;
+        width:100%;
+        margin:0 auto;
+        padding:50px 0px 0px 0px;
+    }  
 `
+
+// You were fixing responsive styles of header, banner and content
+

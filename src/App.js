@@ -61,9 +61,15 @@ const App = () => {
             margin-top:18em;
         }
 
+        @media (min-width:${sg.Mobile}) {
+            > ${MainContent} { 
+                margin-top:5em;
+            }
+        }
+
         @media (min-width:${sg.Tablet}) {
             > ${MainContent} { 
-                margin-top:8%;
+                margin-top:20em;
             }
         }
 
@@ -72,7 +78,6 @@ const App = () => {
                 margin-top:18em;
             }
         }
-
     `
     //You were figuring out if you will be using min-width or max-width for the MainContent container
 

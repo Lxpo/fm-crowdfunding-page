@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import img from '../../assets/image-hero-desktop.jpg'
 import imgMobile from '../../assets/image-hero-mobile.jpg'
 
+import * as sg from '../util/styleGuide'
+
 export const Container = styled.div`
     padding: 250px;
     background: center / cover no-repeat url(${img});
@@ -11,9 +13,13 @@ export const Container = styled.div`
     width: 100%;
     box-sizing:border-box;
 
-    @media (max-width:905px) {
+    @media (max-width:${sg.Tablet}) {
         padding: 100px;
         background: center / cover no-repeat url(${imgMobile});
+    }
+
+    @media (min-width:${sg.Tablet}) {
+        padding: 250px;
     }
 `
 export const Image = styled.img`
