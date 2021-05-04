@@ -12,10 +12,16 @@ export const Control = styled.div`
         max-width:30%;
     }
 
-    @media (max-width:905px) {
+    @media (min-width:${sg.Mobile}) {
         > button {
             margin-right:12px;
             max-width:100%;
+        }
+    }
+
+    @media (min-width:${sg.Tablet}) {
+        > button {
+            max-width:30%;
         }
     }
 `
@@ -27,7 +33,11 @@ export const Description = styled.p`
     text-align:center;
     line-height:1.8em;
 
-    @media (max-width:905px) {
+    @media (min-width:${sg.Mobile}) {
+        font-size:14px;
+    }
+
+    @media (min-width:${sg.Landscape}) {
         font-size:16px;
     }
 `
@@ -40,8 +50,20 @@ export const ProductName = styled.h2`
     text-align:center;
     line-height:1.2em;
 
-    @media (max-width:905px) {
-        font-size:24px;
+    @media (min-width:${sg.Mobile}) {
+        font-size:20px;
+    }
+
+    @media (min-width:${sg.Landscape}) {
+        font-size:22px;
+    }
+
+    @media (min-width:${sg.Tablet}) {
+        font-size:26px;
+    }
+
+    @media (min-width:${sg.Laptop}) {
+        font-size:32px;
     }
 `
 export const Card = styled.div`
@@ -64,8 +86,12 @@ export const Card = styled.div`
         margin-bottom:32px;
     }
 
-    @media (max-width:905px) {
-        padding: 56px 28px 40px 28px;
+    @media (min-width:${sg.Mobile}) {
+        padding: 56px 24px 40px 24px;
+    }
+
+    @media (min-width:${sg.Tablet}) {
+        padding: ${sg.DefaultCardPadding};
     }
 `
 export const ProductIcon = styled.div`

@@ -9,13 +9,13 @@ export const Icon = styled.img`
     height:16px;
 
     @media (min-width:${sg.Mobile}) {
-        width:14px;
-        height:12px;
+        width:18px;
+        height:16px;
     }
 
     @media (min-width:${sg.Landscape}) {
-        width:16px;
-        height:14px;
+        width:22px;
+        height:20px;
     }
 
     @media (min-width:${sg.Tablet}) {

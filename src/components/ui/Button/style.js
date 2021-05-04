@@ -17,4 +17,16 @@ export const Button = styled.button`
     &:hover {
         background: ${sg.DarkCyan};
     }
+
+    @media (min-width:${sg.Mobile}) {
+        font-size:14px;
+        padding: 20px 16px;
+    }
+
+    @media (min-width:${sg.Tablet}) {
+        font-size:16px;
+        padding: 18px 36px;
+    }
 `
+
+//You were fixing mobile responsiveness of the title block

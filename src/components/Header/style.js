@@ -44,8 +44,12 @@ export const CollapsedMenu = styled.div`
     cursor:pointer;
     z-index:1;
 
-    @media (max-width:${sg.Tablet}) {
+    @media (min-width:${sg.Mobile}) {
         display:flex;
+    }
+
+    @media (min-width:${sg.Tablet}) {
+        display:none;
     }
 `
 export const Icon = styled.span`
@@ -56,11 +60,11 @@ export const Icon = styled.span`
     z-index:1;
 
     @media (min-width:${sg.Mobile}) {
-        font-size:22px;
+        font-size:28px;
     }
 
     @media (min-width:${sg.Landscape}) {
-        font-size:24px;
+        font-size:30px;
     }
 
     @media (min-width:${sg.Tablet}) {
@@ -87,8 +91,12 @@ export const NavMenu = styled.ul`
         margin-right:24px;
     }
 
-    @media (max-width:${sg.Tablet}) {
+    @media (min-width:${sg.Mobile}) {
         display:none;
+    }
+
+    @media (min-width:${sg.Tablet}) {
+        display:flex;
     }
 
 `
@@ -106,10 +114,10 @@ export const Container  = styled.div`
     font-family: 'Commissioner', sans-serif;
 
     @media (min-width: ${sg.Mobile}) {
-        max-width:85%;
+        max-width:88%;
         width:100%;
         margin:0 auto;
-        padding:20px 0px 0px 0px;
+        padding:26px 0px 0px 0px;
     }       
 
     @media (min-width: ${sg.Tablet}) {
@@ -127,12 +135,10 @@ export const Container  = styled.div`
     }      
     
     @media (min-width: ${sg.Desktop}) {
-        max-width:76.5%;
+        max-width:77.5%;
         width:100%;
         margin:0 auto;
         padding:50px 0px 0px 0px;
     }  
 `
-
-// You were fixing responsive styles of header, banner and content
 

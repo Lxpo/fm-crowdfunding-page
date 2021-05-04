@@ -13,8 +13,12 @@ export const Text = styled.span`
     -ms-user-select: none; 
     user-select: none;       
     
-    @media (max-width:905px) {
+    @media (min-width:${sg.Mobile}) {
         display:none;
+    }
+
+    @media (min-width:${sg.Tablet}) {
+        display:flex;
     }
     
 `
@@ -24,8 +28,12 @@ export const Icon = styled.div`
     top:0;
     left:0;
 
-    @media (max-width:905px) {
+    @media (min-width:${sg.Mobile}) {
         position:relative;
+    }
+
+    @media (min-width:${sg.Tablet}) {
+        position:absolute;
     }
 `
 export const Bookmark = styled.div`
@@ -45,10 +53,18 @@ export const Bookmark = styled.div`
         margin-left: 2em;
     }
 
-    @media (max-width:905px) {
+    @media (min-width:${sg.Mobile}) {
         padding:0px;
         > ${Text} {
             margin-left: 0px;
         }
     }
+
+    @media (min-width:${sg.Tablet}) {
+        padding:20px 36px;
+        > ${Text} {
+            margin-left: 2em;
+        }
+    }
 `
+//You were fixing the Bookmark mobile responsiveness

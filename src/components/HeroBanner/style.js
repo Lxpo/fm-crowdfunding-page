@@ -14,12 +14,12 @@ export const Container = styled.div`
     box-sizing:border-box;
 
     @media (max-width:${sg.Tablet}) {
-        padding: 100px;
+        padding: 175px 100px;
         background: center / cover no-repeat url(${imgMobile});
     }
 
     @media (min-width:${sg.Tablet}) {
-        padding: 250px;
+        padding: 270px 250px;
     }
 `
 export const Image = styled.img`

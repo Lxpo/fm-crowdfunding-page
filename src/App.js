@@ -42,7 +42,7 @@ const App = () => {
         }
 
         @media (min-width:${sg.Mobile}) {
-            max-width:85%;
+            max-width:88%;
         }
 
         @media (min-width:${sg.Laptop}) {
@@ -63,7 +63,7 @@ const App = () => {
 
         @media (min-width:${sg.Mobile}) {
             > ${MainContent} { 
-                margin-top:5em;
+                margin-top:13em;
             }
         }
 

@@ -68,10 +68,16 @@ export const Card = styled.div`
         margin-bottom:40px;
     }
 
-    @media (max-width:905px) {
+    @media (min-width:${sg.Mobile}) {
         padding: ${sg.CardMobilePadding};
     }
+
+    @media (min-width:${sg.Tablet}) {
+        padding: ${sg.DefaultCardPadding};
+    }
 `
+//You were fixing mobile responsiveness for statistics block
+
 export const Container = styled.div`
     width: 100%;
     display: flex;
