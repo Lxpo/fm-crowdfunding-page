@@ -19,8 +19,8 @@ export const Button = styled.button`
     }
 
     @media (min-width:${sg.Mobile}) {
-        font-size:14px;
-        padding: 20px 16px;
+        font-size:${({fontSize})=> fontSize};
+        padding: ${({padding})=> padding};
     }
 
     @media (min-width:${sg.Tablet}) {

@@ -85,8 +85,8 @@ export const Container = styled.div`
         }
     }
 
-    @media (max-width:905px) {
-        max-width: 400px;
+    @media (min-width:${sg.Mobile}) {
+        max-width: 88%;
         padding: ${sg.CardMobilePadding};
     }
 `
