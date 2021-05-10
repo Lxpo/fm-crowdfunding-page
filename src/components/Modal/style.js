@@ -89,6 +89,16 @@ export const Container = styled.div`
         max-width: 88%;
         padding: ${sg.CardMobilePadding};
     }
+
+    @media (min-width:${sg.Laptop}) {
+        max-width: 85%;
+        padding: ${sg.DefaultCardPadding};
+    }
+
+    @media (min-width:${sg.Desktop}) {
+        max-width: ${sg.DefaultContainerMaxWidth};
+        padding: ${sg.DefaultCardPadding};
+    }
 `
 export const ModalWrapper = styled.div`
     position: absolute;
