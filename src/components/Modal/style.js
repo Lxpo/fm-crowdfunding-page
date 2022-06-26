@@ -50,7 +50,7 @@ export const InfoBlockContainer = styled.div`
     align-items:center;
     justify-content:center;
 
-    > ${InfoBlock.Container} {
+    > ${InfoBlock.Label} {
         margin-bottom:24px;
 
         &:last-of-type{

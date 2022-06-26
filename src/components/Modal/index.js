@@ -38,7 +38,7 @@ const Modal = ({closeModal,passedId,pledgeConfirm,displayConfirm,setBackers,enab
                                 pledge={1}
                                 confirmPledge={displayConfirm}
                                 setBackers={setBackers}
-                                />
+                    />
                     {
                         data.ModalInfoBlockData.map(item => 
                             <InfoBlock  key={item.reward}

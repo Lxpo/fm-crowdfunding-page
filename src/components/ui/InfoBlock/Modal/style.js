@@ -199,7 +199,15 @@ export const Center = styled.div`
     align-items:center;
 `
 export const Label = styled.label`
-    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:center;
+    width:100%;
+    border:1px solid ${sg.setOpacityDarkGray(0.2)};
+    border-radius:10px;
+    box-sizing:border-box;
+    cursor: pointer;
 `
 export const Header = styled.div`
     width: 100%;

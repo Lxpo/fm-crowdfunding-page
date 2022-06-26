@@ -90,22 +90,21 @@ const Modal = ({rewardName,
 
     if(defaultBlock){
         return(
-            <styled.Container style={ContainerInline}>
+            <styled.Label style={ContainerInline} for={'default'}>
                 <styled.Body>
-                    <styled.Label style={{marginTop:'0px',}}>
-                        <styled.RadioInput>
-                            <styled.Radio   type={'radio'}  
-                                            name={'modalGroup'} 
-                                            value={'default'} 
-                                            onClick={handleClick} 
-                                            checked={enable}
-                                            onChange={e => {}}
-                                            />
-                            <styled.RadioControl    style={RadioBorderOnHover} 
-                                                    onMouseEnter={() => setHover(true)} 
-                                                    onMouseLeave={() => setHover(false)}/>
-                        </styled.RadioInput>
-                    </styled.Label>
+                    <styled.RadioInput>
+                        <styled.Radio   type={'radio'}  
+                                        name={'modalGroup'} 
+                                        id={'default'}
+                                        value={'default'} 
+                                        onClick={handleClick} 
+                                        checked={enable}
+                                        onChange={e => {}}
+                                        />
+                        <styled.RadioControl    style={RadioBorderOnHover} 
+                                                onMouseEnter={() => setHover(true)} 
+                                                onMouseLeave={() => setHover(false)}/>
+                    </styled.RadioInput>
                     <styled.Header>
                         <styled.Center>
                             <styled.LeftGroup   onMouseEnter={() => setHover(true)} 
@@ -161,27 +160,24 @@ const Modal = ({rewardName,
                             <Button text={'Continue'}/>
                         </styled.Control>
                     </styled.Footer>
-            </styled.Container>
+            </styled.Label>
         )
     } else {
         return(
-            <styled.Container style={ContainerInline}>
+            <styled.Label style={ContainerInline} for={id}>
                 <styled.Body>
-                    <styled.Label>
-                        <styled.RadioInput  >
-                            <styled.Radio   type={'radio'}  
-                                            name={'modalGroup'} 
-                                            value={id} 
-                                            disabled={remaining == 0}     
-                                            onClick={handleClick} 
-                                            checked={enable}
-                                            onChange={e => {}}
-                                            />
-                            <styled.RadioControl    style={RadioBorderOnHover} 
-                                                    onMouseEnter={() => setHover(true)} 
-                                                    onMouseLeave={() => setHover(false)}/>
-                        </styled.RadioInput>
-                    </styled.Label>
+                    <styled.RadioInput  >
+                        <styled.Radio   type={'radio'}  
+                                        name={'modalGroup'} 
+                                        id={id}
+                                        value={id} 
+                                        disabled={remaining == 0}     
+                                        onClick={handleClick} 
+                                        checked={enable}
+                                        />
+                        <styled.RadioControl    style={RadioBorderOnHover} 
+                                        />
+                    </styled.RadioInput>
                     <styled.Header >
                         <styled.Center>
                             <styled.LeftGroup   onMouseEnter={() => setHover(true)} 
@@ -241,7 +237,7 @@ const Modal = ({rewardName,
                         <Button  text={'Continue'}/>
                     </styled.Control>
                 </styled.Footer>
-            </styled.Container>
+            </styled.Label>
         )
     }
 }
